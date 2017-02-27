@@ -1,0 +1,9 @@
+c:\users\rivendell\documents\visual studio 2013\Projects\ОптПовПотр\ОптПовПотр\bin\Debug\ОптПовПотр.exe.config
+c:\users\rivendell\documents\visual studio 2013\Projects\ОптПовПотр\ОптПовПотр\bin\Debug\ОптПовПотр.exe
+c:\users\rivendell\documents\visual studio 2013\Projects\ОптПовПотр\ОптПовПотр\bin\Debug\ОптПовПотр.pdb
+c:\users\rivendell\documents\visual studio 2013\Projects\ОптПовПотр\ОптПовПотр\obj\Debug\ОптПовПотр.csprojResolveAssemblyReference.cache
+c:\users\rivendell\documents\visual studio 2013\Projects\ОптПовПотр\ОптПовПотр\obj\Debug\ОптПовПотр.Form1.resources
+c:\users\rivendell\documents\visual studio 2013\Projects\ОптПовПотр\ОптПовПотр\obj\Debug\ОптПовПотр.Properties.Resources.resources
+c:\users\rivendell\documents\visual studio 2013\Projects\ОптПовПотр\ОптПовПотр\obj\Debug\ОптПовПотр.csproj.GenerateResource.Cache
+c:\users\rivendell\documents\visual studio 2013\Projects\ОптПовПотр\ОптПовПотр\obj\Debug\ОптПовПотр.exe
+c:\users\rivendell\documents\visual studio 2013\Projects\ОптПовПотр\ОптПовПотр\obj\Debug\ОптПовПотр.pdb
