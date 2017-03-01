@@ -47,6 +47,8 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.roundNUD = new System.Windows.Forms.NumericUpDown();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -67,14 +69,12 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.roundNUD = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roundNUD)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roundNUD)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -266,6 +266,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ввод исходных данных";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(182, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(15, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "R";
+            // 
+            // roundNUD
+            // 
+            this.roundNUD.Location = new System.Drawing.Point(202, 68);
+            this.roundNUD.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.roundNUD.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.roundNUD.Name = "roundNUD";
+            this.roundNUD.Size = new System.Drawing.Size(46, 20);
+            this.roundNUD.TabIndex = 17;
+            this.roundNUD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.roundNUD.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(188, 94);
@@ -367,33 +399,36 @@
             this.toolStripMenuItem2,
             this.закрытьToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 23);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // сохранитьРешениеToolStripMenuItem
             // 
             this.сохранитьРешениеToolStripMenuItem.Name = "сохранитьРешениеToolStripMenuItem";
             this.сохранитьРешениеToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.сохранитьРешениеToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.сохранитьРешениеToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
             this.сохранитьРешениеToolStripMenuItem.Text = "Сохранить решение";
             this.сохранитьРешениеToolStripMenuItem.Click += new System.EventHandler(this.сохранитьРешениеToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(222, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(242, 6);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(225, 22);
+            this.toolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.P)));
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(245, 22);
             this.toolStripMenuItem1.Text = "Просмотр печати";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(225, 22);
+            this.toolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(245, 22);
             this.toolStripMenuItem2.Text = "Печать";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
@@ -401,7 +436,7 @@
             // 
             this.закрытьToolStripMenuItem.Name = "закрытьToolStripMenuItem";
             this.закрытьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.закрытьToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.закрытьToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
             this.закрытьToolStripMenuItem.Text = "Закрыть";
             this.закрытьToolStripMenuItem.Click += new System.EventHandler(this.закрытьToolStripMenuItem_Click);
             // 
@@ -411,7 +446,7 @@
             this.вызовСправкиToolStripMenuItem,
             this.оПрограммеToolStripMenuItem});
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 23);
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.справкаToolStripMenuItem.Text = "Справка";
             // 
             // вызовСправкиToolStripMenuItem
@@ -448,43 +483,11 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // roundNUD
-            // 
-            this.roundNUD.Location = new System.Drawing.Point(202, 68);
-            this.roundNUD.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.roundNUD.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.roundNUD.Name = "roundNUD";
-            this.roundNUD.Size = new System.Drawing.Size(46, 20);
-            this.roundNUD.TabIndex = 17;
-            this.roundNUD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.roundNUD.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(182, 71);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(15, 13);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "R";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 561);
+            this.ClientSize = new System.Drawing.Size(834, 562);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -497,13 +500,13 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roundNUD)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roundNUD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
