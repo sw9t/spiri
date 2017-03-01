@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,33 @@ namespace ОптПовПотр
         {
             InitializeComponent();
         }
+
+        string stringToPrint, documentString;
+        Brush this_color;
+
+        void InitPrint()
+        {
+            stringToPrint = ansRTB.Text;
+            documentString = stringToPrint;
+            this_color = new SolidBrush(ansRTB.ForeColor);
+            printDocument1.DefaultPageSettings.Margins = new Margins(50, 50, 50, 50);
+        }
+
+        private void OnPrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            int charactersOnPage = 0;
+            int linesPerPage = 0;
+            e.Graphics.MeasureString(stringToPrint, ansRTB.Font,
+                e.MarginBounds.Size, StringFormat.GenericTypographic,
+                out charactersOnPage, out linesPerPage);
+            e.Graphics.DrawString(stringToPrint, ansRTB.Font, this_color,
+                e.MarginBounds, StringFormat.GenericTypographic);
+            stringToPrint = stringToPrint.Substring(charactersOnPage);
+            e.HasMorePages = (stringToPrint.Length > 0);
+            if (!e.HasMorePages)
+                stringToPrint = documentString;
+        }
+
         public double umax(double x1, double x2, double x3, double a, double b, double c)
         {
             return (a * x1 * x2 + b * x1 * x3 + c * x2 * x3);
@@ -29,16 +57,18 @@ namespace ОптПовПотр
             double n12, n21, n13, n31, n23, n32, dudx1, dudx2, dudx3, umaxx, alpha, betta, gamma, n, p1, p2, p3, m, x1, x2, x3, lambda;
             double znam, dx1dm, dx2dm, dx3dm, dx1dp1, dx2dp1, dx3dp1, dx1dp2, dx2dp2, dx3dp2, dx1dp3, dx2dp3, dx3dp3;
             double e1m, e11p, e12p, e13p, e2m, e21p, e22p, e23p, e3m, e31p, e32p, e33p;
+            int kolznak;
             try
             {
                 p1 = int.Parse(textBox1.Text) + int.Parse(textBox7.Text);
                 p2 = int.Parse(textBox2.Text) + int.Parse(textBox7.Text);
                 p3 = int.Parse(textBox3.Text) + int.Parse(textBox7.Text);
-                alpha = int.Parse(textBox4.Text);
+                alpha = int.Parse(textBox4.Text); 
                 betta = int.Parse(textBox5.Text);
                 gamma = int.Parse(textBox6.Text);
                 n = int.Parse(textBox7.Text);
                 m = int.Parse(textBox8.Text);
+                kolznak = int.Parse(toolStripTextBox1.Text);
             }
             catch(FormatException)
             {
@@ -462,7 +492,7 @@ namespace ОптПовПотр
             ansRTB.Text += String.Format("\r\nПроверка:\r\n" +
                 "E1M + E11p + E12p + E13p = 0\r\n" +
                 "{0} + {1} + {2} + {3} = {4}\r\n",
-                e1m, e11p, e12p, e13p, Math.Round(e1m + e11p + e12p + e13p, 5));
+                e1m, e11p, e12p, e13p, Math.Round(e1m + e11p + e12p + e13p, kolznak));
             #endregion
             #region 2-е благо
             ansRTB.Text += "\r\nДля блага 2:\r\n";
@@ -626,6 +656,28 @@ namespace ОптПовПотр
         {
             textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = textBox5.Text =
                 textBox6.Text = textBox8.Text = ansRTB.Text = "";
+        }
+
+        private void закрытьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            InitPrint();
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                InitPrint();
+                printDocument1.Print();
+               
+            }
         }
     }
 }
