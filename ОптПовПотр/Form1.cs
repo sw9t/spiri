@@ -19,9 +19,10 @@ namespace ОптПовПотр
             InitializeComponent();
         }
 
+        
+        #region предпросмотр и печать
         string stringToPrint, documentString;
         Brush this_color;
-
         void InitPrint()
         {
             stringToPrint = ansRTB.Text;
@@ -44,7 +45,7 @@ namespace ОптПовПотр
             if (!e.HasMorePages)
                 stringToPrint = documentString;
         }
-
+        #endregion
         public double umax(double x1, double x2, double x3, double a, double b, double c)
         {
             return (a * x1 * x2 + b * x1 * x3 + c * x2 * x3);
