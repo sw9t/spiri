@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ОптПовПотр.Properties;
 
 namespace ОптПовПотр
 {
@@ -130,271 +131,280 @@ namespace ОптПовПотр
             e33p = dx3dp3 * p3 / x3;
             #endregion
             #region Мат модель задачи
-            ansRTB.Text += "Математическая модель задачи имеет вид:\r\n  xj >= 0, j=[1,3]\r\n"+
-                "  x1p1 + x2p2 + x3p3 = M\r\n  U = αx1x2 + βx1x3 + γx2x3 --> max\r\n"+
-                "Функция Лагранжа:\r\n  L(x1, x2, x3, λ) = U(x1, x2, x3) + λ(M - x1p1 - x2p2 - x3p3)\r\n";
-            ansRTB.Text += String.Format("  L(x1, x2, x3, λ) = {0}x1x2 + {1}x1x3 + {2}x2x3 + λ(M - x1p1 - x2p2 - x3p3)\r\n\r\n",
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+            //ansRTB.SelectedText = "Условие задачи:\r\n";
+            ansRTB.AppendText("Математическая модель задачи имеет вид:\r\n");
+            ansRTB.AppendText("  xj >= 0, j=[1,3]\r\n" +
+                              "  x1p1 + x2p2 + x3p3 = M\r\n  U = αx1x2 + βx1x3 + γx2x3 --> max\r\n");
+
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+            ansRTB.AppendText("Функция Лагранжа:\r\n");
+            ansRTB.AppendText("  L(x1, x2, x3, λ) = U(x1, x2, x3) + λ(M - x1p1 - x2p2 - x3p3)\r\n");
+            ansRTB.SelectedText =  String.Format("  L(x1, x2, x3, λ) = {0}x1x2 + {1}x1x3 + {2}x2x3 + λ(M - x1p1 - x2p2 - x3p3)\r\n\r\n",
                Math.Round(alpha, kolznak), Math.Round(betta, kolznak),Math.Round(gamma,kolznak));
             #endregion
 
             #region Значения благ
-            ansRTB.Text += String.Format("При заданных ценах и доходе необходимо приобрести:\r\n" +
-                "  1-го блага - {0} единиц,\r\n" +
-                "  2-го блага - {1} единиц,\r\n" +
-                "  3-го блага - {2} единиц.\r\n" +
-                "Максимальная полезность этого набора составит Umax = {3}\r\n" +
-                "Каждый дополнительно использованный доллар вносит вклад в полезность равный λ = {4}\r\n\r\n",
-               Math.Round(x1,kolznak) ,Math.Round(x2,kolznak) , Math.Round(x3,kolznak), Math.Round(umaxx,kolznak), Math.Round(lambda,kolznak));
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+            ansRTB.AppendText("При заданных ценах и доходе необходимо приобрести:\r\n");
+            ansRTB.AppendText(String.Format("  1-го блага - {0} единиц,\r\n" +
+                                            "  2-го блага - {1} единиц,\r\n" +
+                                            "  3-го блага - {2} единиц.\r\n",
+                Math.Round(x1, kolznak), Math.Round(x2, kolznak), Math.Round(x3, kolznak)));
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+            ansRTB.AppendText("Максимальная полезность ");
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Regular);
+            ansRTB.AppendText(String.Format("этого набора составит Umax = {0}\r\n" +
+                "Каждый дополнительно использованный доллар вносит вклад в полезность равный λ = {1}\r\n\r\n",
+                 Math.Round(umaxx, kolznak), Math.Round(lambda, kolznak)));
             #endregion
             #region Реакции на M
 
+            string tmp;
             double mmax = 0;
             int mimax = 0;
-            ansRTB.Text += "Реакции потребителя при изменении дохода M:\r\n";
+
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+            ansRTB.AppendText("Реакции потребителя при изменении дохода M:\r\n");
+            ansRTB.AppendText(String.Format("dx1/dM = {0}", Math.Round(dx1dm, kolznak)));
+            tmp = "Поскольку спрос на 1-е благо возрастает, то это благо ";
             if (dx1dm > 0)
             {
-                ansRTB.Text += String.Format("dx1/dM = {0} (>0)\r\n" +
-                "Поскольку спрос на 1-е благо возрастает, то это благо ценное.\r\n",
-                Math.Round(dx1dm,kolznak));
+                ansRTB.AppendText("(>0)\r\n" + tmp);
+                ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+                ansRTB.AppendText("ценное.\r\n");
                 if (dx1dm > mmax) { mmax = dx1dm; mimax = 1; }
             }
             if (dx1dm < 0)
             {
-                ansRTB.Text += String.Format("dx1/dM = {0} (<0)\r\n" +
-                "Поскольку спрос на 1-е благо возрастает, то это благо неценное.\r\n",
-                Math.Round(dx1dm,kolznak));
-            }
-            if (dx1dm == 0)
-            {
-                ansRTB.Text += String.Format("dx1/dM = {0} (=0)\r\n",
-                    //"Поскольку спрос на 1-е благо возрастает, то это благо независимое.\r\n",
-                Math.Round(dx1dm,kolznak));
+                ansRTB.AppendText("(<0)\r\n" + tmp);
+                ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+                ansRTB.AppendText("неценное.\r\n");
             }
             //====================================================
+            ansRTB.AppendText(String.Format("dx2/dM = {0}", Math.Round(dx2dm, kolznak)));
+            tmp = "Поскольку спрос на 2-е благо возрастает, то это благо ";
             if (dx2dm > 0)
             {
-                ansRTB.Text += String.Format("dx2/dM = {0} (>0)\r\n" +
-                "Поскольку спрос на 2-е благо возрастает, то это благо ценное.\r\n",
-                Math.Round(dx2dm,kolznak));
+                ansRTB.AppendText("(>0)\r\n" + tmp);
+                ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+                ansRTB.AppendText("ценное.\r\n");
                 if (dx2dm > mmax) { mmax = dx2dm; mimax = 2; }
             }
             if (dx2dm < 0)
             {
-                ansRTB.Text += String.Format("dx2/dM = {0} (<0)\r\n" +
-                "Поскольку спрос на 2-е благо возрастает, то это благо неценное.\r\n",
-                Math.Round(dx2dm,kolznak));
-            }
-            if (dx2dm == 0)
-            {
-                ansRTB.Text += String.Format("dx2/dM = {0} (=0)\r\n",
-                    //"Поскольку спрос на 2-е благо возрастает, то это благо независимое.\r\n",
-                Math.Round(dx2dm,kolznak));
+                ansRTB.AppendText("(<0)\r\n" + tmp);
+                ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+                ansRTB.AppendText("неценное.\r\n");
             }
             //====================================================
+            ansRTB.AppendText(String.Format("dx3/dM = {0}", Math.Round(dx3dm, kolznak)));
+            tmp = "Поскольку спрос на 3-е благо возрастает, то это благо ";
             if (dx3dm > 0)
             {
-                ansRTB.Text += String.Format("dx3/dM = {0} (>0)\r\n" +
-                "Поскольку спрос на 3-е благо возрастает, то это благо ценное.\r\n",
-                Math.Round(dx3dm,kolznak));
+                ansRTB.AppendText("(>0)\r\n" + tmp);
+                ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+                ansRTB.AppendText("ценное.\r\n");
                 if (dx3dm > mmax) { mmax = dx3dm; mimax = 3; }
             }
             if (dx3dm < 0)
             {
-                ansRTB.Text += String.Format("dx3/dM = {0} (<0)\r\n" +
-                "Поскольку спрос на 3-е благо возрастает, то это благо неценное.\r\n",
-                Math.Round(dx3dm,kolznak));
+                ansRTB.AppendText("(<0)\r\n" + tmp);
+                ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+                ansRTB.AppendText("неценное.\r\n");
             }
-            if (dx3dm == 0)
-            {
-                ansRTB.Text += String.Format("dx3/dM = {0} (=0)\r\n",
-                    //"Поскольку спрос на 3-е благо возрастает, то это благо независимое.\r\n",
-                Math.Round(dx3dm,kolznak));
-            }
+
             if (mimax != 0)
             {
-                ansRTB.Text += String.Format("Наиболее ценным является {0}-е благо\r\n\r\n", mimax);
+                ansRTB.SelectedText =  String.Format("Наиболее ценным является {0}-е благо\r\n", mimax);
             }
             #endregion
             #region Реакции при изменении цены на 1е благо
-            ansRTB.Text += "\r\nОпределим реакции потребителя при изменении цены на 1-е благо:\r\n";
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+            ansRTB.AppendText("\r\nОпределим реакции потребителя при изменении цены на 1-е благо:\r\n");
+            tmp = "С увеличением цены на 1-е благо спрос на него {0}, значит, 1-е благо ";
+            ansRTB.AppendText(String.Format("dx1/dp1 = {0}", Math.Round(dx1dp1, kolznak)));
             if (dx1dp1 < 0)
             {
-                ansRTB.Text += String.Format("dx1/dp1 = {0}(<0)\r\n" +
-                "С увеличением цены на 1-е благо спрос на него уменьшается, значит, 1-е благо нормальное.\r\n",
-                    Math.Round(dx1dp1,kolznak));
+                ansRTB.SelectedText = String.Format("(<0)\r\n" + tmp, "уменьшается");
+                ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+                ansRTB.AppendText("нормальное.\r\n");
             }
             if (dx1dp1 > 0)
             {
-                ansRTB.Text += String.Format("dx1/dp1 = {0}(>0)\r\n" +
-                "С увеличением цены на 1-е благо спрос на него увеличивается, значит, 1-е благо ненормальное.\r\n",
-                    Math.Round(dx1dp1,kolznak));
+                ansRTB.SelectedText = String.Format("(>0)\r\n" + tmp, "увеличивается");
+                ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+                ansRTB.AppendText("ненормальное.\r\n");
             }
             if (dx1dp1 == 0)
             {
-                ansRTB.Text += String.Format("dx1/dp1 = {0}(=0)\r\n" +
-                "С увеличением цены на 1-е благо спрос на него не изменяется, значит, 1-е благо независимое.\r\n",
-                    Math.Round(dx1dp1,kolznak));
+                ansRTB.SelectedText = String.Format("(=0)\r\n" + tmp, "не изменяется");
+                ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+                ansRTB.AppendText("независимое.\r\n");
             }
             //=================================================
+
+            ansRTB.AppendText(String.Format("dx2/dp1 = {0}", Math.Round(dx2dp1, kolznak)));
+            tmp = "С увеличением цены на 1-е благо спрос на 2-е благо {0}, эти блага ";
             if (dx2dp1 < 0)
             {
-                ansRTB.Text += String.Format("dx2/dp1 = {0}(<0)\r\n" +
-                "С увеличением цены на 1-е благо спрос на 2-е благо уменьшается, эти блага взаимодополняемые.\r\n",
-                    Math.Round(dx2dp1,kolznak));
+                ansRTB.SelectedText = String.Format("(<0)\r\n" + tmp, "уменьшается");
+                ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+                ansRTB.AppendText("взаимодополняемые.\r\n");
             }
             if (dx2dp1 > 0)
             {
-                ansRTB.Text += String.Format("dx2/dp1 = {0}(>0)\r\n" +
-                "С увеличением цены на 1-е благо спрос на 2-е благо увеличивается, эти блага взаимозаменяемые.\r\n",
-                    Math.Round(dx2dp1,kolznak));
+                ansRTB.SelectedText = String.Format("(>0)\r\n" + tmp, "увеличивается");
+                ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+                ansRTB.AppendText("взаимозаменяемые.\r\n");
             }
             if (dx2dp1 == 0)
             {
-                ansRTB.Text += String.Format("dx2/dp1 = {0}(=0)\r\n" +
-                "С увеличением цены на 1-е благо спрос на 2-е благо не изменяется, эти блага независимые.\r\n",
-                    Math.Round(dx2dp1,kolznak));
+                ansRTB.SelectedText = String.Format("(=0)\r\n" + tmp, "не изменяется");
+                ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+                ansRTB.AppendText("независимые.\r\n");
             }
             //=================================================
             if (dx3dp1 < 0)
             {
-                ansRTB.Text += String.Format("dx3/dp1 = {0}(<0)\r\n" +
+                ansRTB.SelectedText =  String.Format("dx3/dp1 = {0}(<0)\r\n" +
                 "С увеличением цены на 1-е благо спрос на 3-е благо уменьшается, эти блага взаимодополняемые.\r\n",
                     Math.Round(dx3dp1,kolznak));
             }
             if (dx3dp1 > 0)
             {
-                ansRTB.Text += String.Format("dx3/dp1 = {0}(>0)\r\n" +
+                ansRTB.SelectedText =  String.Format("dx3/dp1 = {0}(>0)\r\n" +
                 "С увеличением цены на 1-е благо спрос на 3-е благо увеличивается, эти блага взаимозаменяемые.\r\n",
                     Math.Round(dx3dp1,kolznak));
             }
             if (dx3dp1 == 0)
             {
-                ansRTB.Text += String.Format("dx3/dp1 = {0}(=0)\r\n" +
+                ansRTB.SelectedText =  String.Format("dx3/dp1 = {0}(=0)\r\n" +
                 "С увеличением цены на 1-е благо спрос на 3-е благо не изменяется, эти блага независимые.\r\n",
                     Math.Round(dx3dp1,kolznak));
             }
             #endregion
             #region Реакции при изменении цены на 2е благо
-            ansRTB.Text += "\r\nОпределим реакции потребителя при изменении цены на 2-е благо:\r\n";
+            ansRTB.SelectedText =  "\r\nОпределим реакции потребителя при изменении цены на 2-е благо:\r\n";
             if (dx1dp2 < 0)
             {
-                ansRTB.Text += String.Format("dx1/dp2 = {0}(<0)\r\n" +
+                ansRTB.SelectedText =  String.Format("dx1/dp2 = {0}(<0)\r\n" +
                 "С увеличением цены на 2-е благо спрос на 1-е благо уменьшается, эти блага взаимодополняемые.\r\n",
                     Math.Round(dx1dp2,kolznak));
             }
             if (dx1dp2 > 0)
             {
-                ansRTB.Text += String.Format("dx1/dp2 = {0}(>0)\r\n" +
+                ansRTB.SelectedText =  String.Format("dx1/dp2 = {0}(>0)\r\n" +
                 "С увеличением цены на 2-е благо спрос на 1-е благо увеличивается, эти блага взаимозаменяемые.\r\n",
                     Math.Round(dx1dp2,kolznak));
             }
             if (dx1dp2 == 0)
             {
-                ansRTB.Text += String.Format("dx1/dp2 = {0}(=0)\r\n" +
+                ansRTB.SelectedText =  String.Format("dx1/dp2 = {0}(=0)\r\n" +
                 "С увеличением цены на 2-е благо спрос на 1-е благо не изменяется, эти блага независимые.\r\n",
                     Math.Round(dx1dp2,kolznak));
             }
             //=================================================
             if (dx2dp2 < 0)
             {
-                ansRTB.Text += String.Format("dx2/dp2 = {0}(<0)\r\n" +
+                ansRTB.SelectedText =  String.Format("dx2/dp2 = {0}(<0)\r\n" +
                 "С увеличением цены на 2-е благо спрос на него уменьшается, это благо нормальное.\r\n",
                     Math.Round(dx2dp2,kolznak));
             }
             if (dx2dp2 > 0)
             {
-                ansRTB.Text += String.Format("dx2/dp2 = {0}(>0)\r\n" +
+                ansRTB.SelectedText =  String.Format("dx2/dp2 = {0}(>0)\r\n" +
                 "С увеличением цены на 2-е благо спрос на него увеличивается, это благо ненормальное.\r\n",
                     Math.Round(dx2dp2,kolznak));
             }
             if (dx2dp2 == 0)
             {
-                ansRTB.Text += String.Format("dx2/dp2 = {0}(=0)\r\n" +
+                ansRTB.SelectedText =  String.Format("dx2/dp2 = {0}(=0)\r\n" +
                 "С увеличением цены на 2-е благо спрос на него не изменяется, это благо независимое.\r\n",
                     Math.Round(dx2dp2,kolznak));
             }
             //=================================================
             if (dx3dp2 < 0)
             {
-                ansRTB.Text += String.Format("dx3/dp2 = {0}(<0)\r\n" +
+                ansRTB.SelectedText =  String.Format("dx3/dp2 = {0}(<0)\r\n" +
                 "С увеличением цены на 2-е благо спрос на 3-е благо уменьшается, эти блага взаимодополняемые.\r\n",
                     Math.Round(dx3dp2,kolznak));
             }
             if (dx3dp2 > 0)
             {
-                ansRTB.Text += String.Format("dx3/dp2 = {0}(>0)\r\n" +
+                ansRTB.SelectedText =  String.Format("dx3/dp2 = {0}(>0)\r\n" +
                 "С увеличением цены на 2-е благо спрос на 3-е благо увеличивается, эти блага взаимозаменяемые.\r\n",
                     Math.Round(dx3dp2,kolznak));
             }
             if (dx3dp2 == 0)
             {
-                ansRTB.Text += String.Format("dx3/dp2 = {0}(=0)\r\n" +
+                ansRTB.SelectedText =  String.Format("dx3/dp2 = {0}(=0)\r\n" +
                 "С увеличением цены на 2-е благо спрос на 3-е благо не изменяется, эти блага независимые.\r\n",
                     Math.Round(dx3dp2,kolznak));
             }
             #endregion
             #region Реакции при изменении цены на 3е благо
-            ansRTB.Text += "\r\nОпределим реакции потребителя при изменении цены на 3-е благо:\r\n";
+            ansRTB.SelectedText =  "\r\nОпределим реакции потребителя при изменении цены на 3-е благо:\r\n";
             if (dx1dp3 < 0)
             {
-                ansRTB.Text += String.Format("dx1/dp3 = {0}(<0)\r\n" +
+                ansRTB.SelectedText =  String.Format("dx1/dp3 = {0}(<0)\r\n" +
                 "С увеличением цены на 1-е благо спрос на 1-е благо уменьшается, эти блага взаимодополняемые.\r\n",
                     Math.Round(dx1dp3,kolznak));
             }
             if (dx1dp3 > 0)
             {
-                ansRTB.Text += String.Format("dx1/dp3 = {0}(>0)\r\n" +
+                ansRTB.SelectedText =  String.Format("dx1/dp3 = {0}(>0)\r\n" +
                 "С увеличением цены на 3-е благо спрос на 1-е благо увеличивается, эти блага взаимозаменяемые.\r\n",
                     Math.Round(dx1dp3,kolznak));
             }
             if (dx1dp3 == 0)
             {
-                ansRTB.Text += String.Format("dx1/dp3 = {0}(=0)\r\n" +
+                ansRTB.SelectedText =  String.Format("dx1/dp3 = {0}(=0)\r\n" +
                 "С увеличением цены на 3-е благо спрос на 1-е благо не изменяется, эти блага независимые.\r\n",
                     Math.Round(dx1dp3,kolznak));
             }
             //=================================================
             if (dx2dp3 < 0)
             {
-                ansRTB.Text += String.Format("dx2/dp3 = {0}(<0)\r\n" +
+                ansRTB.SelectedText =  String.Format("dx2/dp3 = {0}(<0)\r\n" +
                 "С увеличением цены на 3-е благо спрос на 2-е благо уменьшается, эти блага взаимодополняемые.\r\n",
                     Math.Round(dx2dp3,kolznak));
             }
             if (dx2dp3 > 0)
             {
-                ansRTB.Text += String.Format("dx2/dp3 = {0}(>0)\r\n" +
+                ansRTB.SelectedText =  String.Format("dx2/dp3 = {0}(>0)\r\n" +
                 "С увеличением цены на 3-е благо спрос на 2-е благо увеличивается, эти блага взаимозаменяемые.\r\n",
                     Math.Round(dx2dp3,kolznak));
             }
             if (dx2dp3 == 0)
             {
-                ansRTB.Text += String.Format("dx2/dp3 = {0}(=0)\r\n" +
+                ansRTB.SelectedText =  String.Format("dx2/dp3 = {0}(=0)\r\n" +
                 "С увеличением цены на 3-е благо спрос на 2-е благо не изменяется, эти блага независимые.\r\n",
                     Math.Round(dx2dp3,kolznak));
             }
             //=================================================
             if (dx3dp3 < 0)
             {
-                ansRTB.Text += String.Format("dx3/dp3 = {0}(<0)\r\n" +
+                ansRTB.SelectedText =  String.Format("dx3/dp3 = {0}(<0)\r\n" +
                 "С увеличением цены на 3-е благо спрос на него уменьшается, это благо нормальное.\r\n",
                     Math.Round(dx3dp3,kolznak));
             }
             if (dx3dp3 > 0)
             {
-                ansRTB.Text += String.Format("dx3/dp3 = {0}(>0)\r\n" +
+                ansRTB.SelectedText =  String.Format("dx3/dp3 = {0}(>0)\r\n" +
                 "С увеличением цены на 3-е благо спрос на него увеличивается, это благо ненормальное.\r\n",
                     Math.Round(dx3dp3,kolznak));
             }
             if (dx3dp3 == 0)
             {
-                ansRTB.Text += String.Format("dx3/dp3 = {0}(=0)\r\n" +
+                ansRTB.SelectedText =  String.Format("dx3/dp3 = {0}(=0)\r\n" +
                 "С увеличением цены на 3-е благо спрос на него не изменяется, это благо независимое.\r\n",
                     Math.Round(dx3dp3,kolznak));
             }
             #endregion
             #region Вычисление предельной полезности
-            ansRTB.Text += "\r\nВычислим предельные полезности благ в точке экстремума.\r\n";
-            ansRTB.Text += String.Format("X* = ({0}; {1}; {2})\r\n" +
+            ansRTB.SelectedText =  "\r\nВычислим предельные полезности благ в точке экстремума.\r\n";
+            ansRTB.SelectedText =  String.Format("X* = ({0}; {1}; {2})\r\n" +
             "dU/dx1 = {3}\r\n" +
             "dU/dx2 = {4}\r\n" +
             "dU/dx3 = {5}\r\n" +
@@ -404,8 +414,8 @@ namespace ОптПовПотр
                Math.Round(x1,kolznak) , Math.Round(x2,kolznak), Math.Round(x3,kolznak), Math.Round(dudx1,kolznak),Math.Round(dudx2,kolznak) ,Math.Round(dudx3,kolznak) );
             #endregion
             #region Нормы замещения
-            ansRTB.Text += "Вычислим нормы замещения благ в точке оптимума X*.\r\n";
-            ansRTB.Text += String.Format("Нормы замены 1-го блага 2-м:\r\n" +
+            ansRTB.SelectedText =  "Вычислим нормы замещения благ в точке оптимума X*.\r\n";
+            ansRTB.SelectedText =  String.Format("Нормы замены 1-го блага 2-м:\r\n" +
                 "n2,1 = {0}.\r\n" +
                 "Для замещения одной единицы 1-го блага необходимо дополнительно приобрести {1} единиц 2-го блага, чтобы удовлетворенность осталась на прежнем уровне.\r\n" +
                 "Нормы замены 1-го блага 3-м:\r\n" +
@@ -429,194 +439,194 @@ namespace ОптПовПотр
                 Math.Round(n13,kolznak),Math.Round( Math.Abs(n13),kolznak),Math.Round(n23,kolznak) ,Math.Round( Math.Abs(n23),kolznak));
             #endregion
             #region Коэффициенты эластичности
-            ansRTB.Text += String.Format("Вычислим коэффициенты эластичности по доходу и ценам при заданных ценах и доходе:\r\n" +
+            ansRTB.SelectedText =  String.Format("Вычислим коэффициенты эластичности по доходу и ценам при заданных ценах и доходе:\r\n" +
                 "p1 = {0}; p2 = {1}; p3 = {2}; M = {3}\r\n",
                 Math.Round(p1,kolznak),Math.Round(p2,kolznak) ,Math.Round(p3,kolznak) ,Math.Round(m,kolznak) );
             #region 1-е благо
-            ansRTB.Text += "\r\nДля блага 1:\r\n";
+            ansRTB.SelectedText =  "\r\nДля блага 1:\r\n";
             if (e1m > 0)
             {
-                ansRTB.Text += String.Format("E1M = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E1M = {0}\r\n" +
                 "При увеличении дохода на 1% спрос на 1-е благо возрастет на {1}%.\r\n",
                 Math.Round(e1m,kolznak),Math.Round(Math.Abs(e1m),kolznak) );
             }
 
             if (e1m < 0)
             {
-                ansRTB.Text += String.Format("E1M = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E1M = {0}\r\n" +
                 "При увеличении дохода на 1% спрос на 1-е благо уменьшится на {1}%.\r\n",
                 Math.Round(e1m,kolznak), Math.Round(Math.Abs(e1m),kolznak));
             }
 
-            ansRTB.Text += "Коэффициенты эластичности по ценам:\r\n";
+            ansRTB.SelectedText =  "Коэффициенты эластичности по ценам:\r\n";
             if (e11p > 0)
             {
-                ansRTB.Text += String.Format("E11p = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E11p = {0}\r\n" +
                 "При росте цены на 1-е благо на 1% спрос на него увеличивается на {1}%.\r\n",
                 Math.Round(e11p,kolznak),Math.Round(Math.Abs(e11p),kolznak) );
             }
 
             if (e11p < 0)
             {
-                ansRTB.Text += String.Format("E11p = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E11p = {0}\r\n" +
                 "При росте цены на 1-е благо на 1% спрос на него уменьшается на {1}%.\r\n",
                 Math.Round(e11p,kolznak),Math.Round(Math.Abs(e11p),kolznak) );
             }
             //============
             if (e12p > 0)
             {
-                ansRTB.Text += String.Format("E12p = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E12p = {0}\r\n" +
                 "При росте цены на 2-е благо на 1% спрос на 1-е благо увеличивается на {1}%.\r\n",
                 Math.Round(e12p,kolznak),Math.Round( Math.Abs(e12p),kolznak));
             }
 
             if (e12p < 0)
             {
-                ansRTB.Text += String.Format("E12p = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E12p = {0}\r\n" +
                 "При росте цены на 2-е благо на 1% спрос на 1-е благо уменьшается на {1}%.\r\n",
                 Math.Round(e12p,kolznak), Math.Round(Math.Abs(e12p),kolznak));
             }
             //===========
             if (e13p > 0)
             {
-                ansRTB.Text += String.Format("E13p = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E13p = {0}\r\n" +
                 "При росте цены на 3-е благо на 1% спрос на 1-е благо увеличивается на {1}%.\r\n",
                 Math.Round(e13p,kolznak),Math.Round(Math.Abs(e13p),kolznak) );
             }
 
             if (e13p < 0)
             {
-                ansRTB.Text += String.Format("E13p = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E13p = {0}\r\n" +
                 "При росте цены на 3-е благо на 1% спрос на 1-е благо уменьшается на {1}%.\r\n",
                 Math.Round(e13p,kolznak),Math.Round(Math.Abs(e13p),kolznak) );
             }
-            ansRTB.Text += String.Format("\r\nПроверка:\r\n" +
+            ansRTB.SelectedText =  String.Format("\r\nПроверка:\r\n" +
                 "E1M + E11p + E12p + E13p = 0\r\n" +
                 "{0} + {1} + {2} + {3} = {4}\r\n",
                 Math.Round(e1m,kolznak),Math.Round(e11p,kolznak) ,Math.Round(e12p,kolznak) ,Math.Round(e13p,kolznak) , Math.Round(e1m + e11p + e12p + e13p, kolznak));
             #endregion
             #region 2-е благо
-            ansRTB.Text += "\r\nДля блага 2:\r\n";
+            ansRTB.SelectedText =  "\r\nДля блага 2:\r\n";
             if (e2m > 0)
             {
-                ansRTB.Text += String.Format("E2M = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E2M = {0}\r\n" +
                 "При увеличении дохода на 1% спрос на 2-е благо возрастет на {1}%.\r\n",
                 Math.Round(e2m,kolznak),Math.Round(Math.Abs(e2m),kolznak) );
             }
 
             if (e2m < 0)
             {
-                ansRTB.Text += String.Format("E2M = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E2M = {0}\r\n" +
                 "При увеличении дохода на 1% спрос на 2-е благо уменьшится на {1}%.\r\n",
                 Math.Round(e2m,kolznak),Math.Round(Math.Abs(e2m),kolznak) );
             }
 
-            ansRTB.Text += "Коэффициенты эластичности по ценам:\r\n";
+            ansRTB.SelectedText =  "Коэффициенты эластичности по ценам:\r\n";
             if (e21p > 0)
             {
-                ansRTB.Text += String.Format("E21p = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E21p = {0}\r\n" +
                 "При росте цены на 1-е благо на 1% спрос на 2-е благо увеличивается на {1}%.\r\n",
                 Math.Round(e21p,kolznak),Math.Round(Math.Abs(e21p),kolznak) );
             }
 
             if (e21p < 0)
             {
-                ansRTB.Text += String.Format("E21p = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E21p = {0}\r\n" +
                 "При росте цены на 1-е благо на 1% спрос на 2-е благо уменьшается на {1}%.\r\n",
                 Math.Round(e21p,kolznak),Math.Round(Math.Abs(e21p),kolznak) );
             }
             //============
             if (e22p > 0)
             {
-                ansRTB.Text += String.Format("E22p = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E22p = {0}\r\n" +
                 "При росте цены на 2-е благо на 1% спрос на него увеличивается на {1}%.\r\n",
                 Math.Round(e22p,kolznak),Math.Round(Math.Abs(e22p),kolznak) );
             }
 
             if (e22p < 0)
             {
-                ansRTB.Text += String.Format("E22p = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E22p = {0}\r\n" +
                 "При росте цены на 2-е благо на 1% спрос на него уменьшается на {1}%.\r\n",
                 Math.Round(e22p,kolznak),Math.Round(Math.Abs(e22p),kolznak) );
             }
             //===========
             if (e23p > 0)
             {
-                ansRTB.Text += String.Format("E23p = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E23p = {0}\r\n" +
                 "При росте цены на 3-е благо на 1% спрос на 2-е благо увеличивается на {1}%.\r\n",
                 Math.Round(e23p,kolznak),Math.Round(Math.Abs(e23p),kolznak) );
             }
 
             if (e23p < 0)
             {
-                ansRTB.Text += String.Format("E23p = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E23p = {0}\r\n" +
                 "При росте цены на 3-е благо на 1% спрос на 2-е благо уменьшается на {1}%.\r\n",
                 Math.Round(e23p,kolznak), Math.Round(Math.Abs(e23p),kolznak));
             }
-            ansRTB.Text += String.Format("\r\nПроверка:\r\n" +
+            ansRTB.SelectedText =  String.Format("\r\nПроверка:\r\n" +
                 "E2M + E21p + E22p + E23p = 0\r\n" +
                 "{0} + {1} + {2} + {3} = {4}\r\n",
                 Math.Round(e2m,kolznak),Math.Round(e21p,kolznak) ,Math.Round(e22p,kolznak) ,Math.Round(e23p,kolznak) , Math.Round(e2m + e21p + e22p + e23p, kolznak));
             #endregion
             #region 3-е благо
-            ansRTB.Text += "\r\nДля блага 3:\r\n";
+            ansRTB.SelectedText =  "\r\nДля блага 3:\r\n";
             if (e3m > 0)
             {
-                ansRTB.Text += String.Format("E3M = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E3M = {0}\r\n" +
                 "При увеличении дохода на 1% спрос на 3-е благо возрастет на {1}%.\r\n",
                 Math.Round(e3m,kolznak),Math.Round(Math.Abs(e3m),kolznak) );
             }
 
             if (e3m < 0)
             {
-                ansRTB.Text += String.Format("E3M = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E3M = {0}\r\n" +
                 "При увеличении дохода на 1% спрос на 3-е благо уменьшится на {1}%.\r\n",
                 Math.Round(e3m,kolznak),Math.Round(Math.Abs(e3m),kolznak) );
             }
 
-            ansRTB.Text += "Коэффициенты эластичности по ценам:\r\n";
+            ansRTB.SelectedText =  "Коэффициенты эластичности по ценам:\r\n";
             if (e31p > 0)
             {
-                ansRTB.Text += String.Format("E31p = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E31p = {0}\r\n" +
                 "При росте цены на 1-е благо на 1% спрос на 3-е благо увеличивается на {1}%.\r\n",
                 Math.Round(e31p,kolznak),Math.Round(Math.Abs(e31p),kolznak) );
             }
 
             if (e31p < 0)
             {
-                ansRTB.Text += String.Format("E31p = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E31p = {0}\r\n" +
                 "При росте цены на 1-е благо на 1% спрос на 3-е благо уменьшается на {1}%.\r\n",
                 Math.Round(e31p,kolznak),Math.Round( Math.Abs(e31p),kolznak));
             }
             //============
             if (e32p > 0)
             {
-                ansRTB.Text += String.Format("E32p = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E32p = {0}\r\n" +
                 "При росте цены на 2-е благо на 1% спрос на 3-е благо увеличивается на {1}%.\r\n",
                 Math.Round(e32p,kolznak),Math.Round(Math.Abs(e32p),kolznak) );
             }
 
             if (e32p < 0)
             {
-                ansRTB.Text += String.Format("E32p = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E32p = {0}\r\n" +
                 "При росте цены на 2-е благо на 1% спрос на 3-е благо уменьшается на {1}%.\r\n",
                 Math.Round(e32p,kolznak),Math.Round(Math.Abs(e32p),kolznak) );
             }
             //===========
             if (e33p > 0)
             {
-                ansRTB.Text += String.Format("E33p = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E33p = {0}\r\n" +
                 "При росте цены на 3-е благо на 1% спрос на него увеличивается на {1}%.\r\n",
                 Math.Round(e33p,kolznak),Math.Round(Math.Abs(e33p),kolznak) );
             }
 
             if (e33p < 0)
             {
-                ansRTB.Text += String.Format("E33p = {0}\r\n" +
+                ansRTB.SelectedText =  String.Format("E33p = {0}\r\n" +
                 "При росте цены на 3-е благо на 1% спрос на него уменьшается на {1}%.\r\n",
                 Math.Round(e33p,kolznak),Math.Round(Math.Abs(e33p),kolznak) );
             }
-            ansRTB.Text += String.Format("\r\nПроверка:\r\n" +
+            ansRTB.SelectedText =  String.Format("\r\nПроверка:\r\n" +
                 "E3M + E31p + E32p + E33p = 0\r\n" +
                 "{0} + {1} + {2} + {3} = {4}\r\n",
                 Math.Round(e3m,kolznak),Math.Round(e31p,kolznak) ,Math.Round(e32p,kolznak) ,Math.Round(e33p,kolznak) , Math.Round(e3m + e31p + e32p + e33p, kolznak));
@@ -629,47 +639,34 @@ namespace ОптПовПотр
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Программа разработана для решения задач оптимального поведения потребителя\r\n"+
-            "специально для кафедры прикладной математики и информатики.\r\n"+
-            "Разработана студентами группы ФМ13ДР62ПФ (403):\r\n"+
-            "• Гощина Н.Н.\r\n"+
-            "• Диденко А.И.\r\n"+
-            "• Лысенко А.А.\r\n"+
-            "• Штырба С.Г.\r\n"+
-            "© 2017, физико-математический факультет ПГУ им. Т.Г. Шевченко\r\n", 
+            MessageBox.Show(Resources.developers, 
                 "О программе", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
         private void вызовСправкиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Тут скоро будет справка");
         }
-
         private void сохранитьРешениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
             if (sfd.ShowDialog() == DialogResult.OK)
                 File.WriteAllText(sfd.FileName, ansRTB.Text);
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = textBox5.Text =
                 textBox6.Text = textBox8.Text = ansRTB.Text = "";
         }
-
         private void закрытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             InitPrint();
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();
         }
-
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             if (printDialog1.ShowDialog() == DialogResult.OK)
@@ -679,7 +676,6 @@ namespace ОптПовПотр
                
             }
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
