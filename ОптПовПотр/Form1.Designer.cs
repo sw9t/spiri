@@ -67,12 +67,14 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.roundNUD = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roundNUD)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -131,9 +133,9 @@
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(289, 42);
+            this.textBox7.Location = new System.Drawing.Point(116, 68);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(60, 20);
+            this.textBox7.Size = new System.Drawing.Size(46, 20);
             this.textBox7.TabIndex = 8;
             this.textBox7.Text = "0";
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -201,7 +203,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(271, 45);
+            this.label8.Location = new System.Drawing.Point(98, 71);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(15, 13);
             this.label8.TabIndex = 14;
@@ -210,7 +212,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(270, 22);
+            this.label9.Location = new System.Drawing.Point(7, 71);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(16, 13);
             this.label9.TabIndex = 16;
@@ -218,18 +220,18 @@
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(289, 19);
+            this.textBox8.Location = new System.Drawing.Point(26, 68);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(60, 20);
+            this.textBox8.Size = new System.Drawing.Size(66, 20);
             this.textBox8.TabIndex = 7;
             this.textBox8.Text = "6240";
             this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(9, 71);
+            this.button1.Location = new System.Drawing.Point(6, 94);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(274, 39);
+            this.button1.Size = new System.Drawing.Size(173, 39);
             this.button1.TabIndex = 0;
             this.button1.Text = "решить";
             this.button1.UseVisualStyleBackColor = true;
@@ -237,6 +239,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.roundNUD);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.button1);
@@ -257,14 +261,14 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(358, 121);
+            this.groupBox1.Size = new System.Drawing.Size(262, 140);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ввод исходных данных";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(289, 71);
+            this.button2.Location = new System.Drawing.Point(188, 94);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(63, 39);
             this.button2.TabIndex = 8;
@@ -277,9 +281,9 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.flowLayoutPanel2);
-            this.groupBox2.Location = new System.Drawing.Point(376, 27);
+            this.groupBox2.Location = new System.Drawing.Point(280, 27);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(446, 121);
+            this.groupBox2.Size = new System.Drawing.Size(542, 140);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Постановка задачи";
@@ -294,7 +298,7 @@
             this.flowLayoutPanel2.Controls.Add(this.U_label);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(6, 15);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(434, 99);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(530, 118);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // label12
@@ -303,7 +307,7 @@
             this.label12.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label12.Location = new System.Drawing.Point(3, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(426, 135);
+            this.label12.Size = new System.Drawing.Size(502, 90);
             this.label12.TabIndex = 0;
             this.label12.Text = resources.GetString("label12.Text");
             // 
@@ -311,7 +315,7 @@
             // 
             this.U_label.AutoSize = true;
             this.U_label.Font = new System.Drawing.Font("Times New Roman", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.U_label.Location = new System.Drawing.Point(3, 135);
+            this.U_label.Location = new System.Drawing.Point(3, 90);
             this.U_label.Name = "U_label";
             this.U_label.Size = new System.Drawing.Size(32, 18);
             this.U_label.TabIndex = 1;
@@ -323,9 +327,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.ansRTB);
-            this.groupBox3.Location = new System.Drawing.Point(12, 154);
+            this.groupBox3.Location = new System.Drawing.Point(12, 173);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(810, 395);
+            this.groupBox3.Size = new System.Drawing.Size(810, 376);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Решение задачи";
@@ -339,7 +343,7 @@
             this.ansRTB.Name = "ansRTB";
             this.ansRTB.ReadOnly = true;
             this.ansRTB.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.ansRTB.Size = new System.Drawing.Size(804, 376);
+            this.ansRTB.Size = new System.Drawing.Size(804, 357);
             this.ansRTB.TabIndex = 0;
             this.ansRTB.Text = "";
             // 
@@ -347,11 +351,10 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
-            this.справкаToolStripMenuItem,
-            this.toolStripTextBox1});
+            this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(834, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(834, 24);
             this.menuStrip1.TabIndex = 20;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -445,11 +448,37 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // toolStripTextBox1
+            // roundNUD
             // 
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
-            this.toolStripTextBox1.Text = "4";
+            this.roundNUD.Location = new System.Drawing.Point(202, 68);
+            this.roundNUD.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.roundNUD.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.roundNUD.Name = "roundNUD";
+            this.roundNUD.Size = new System.Drawing.Size(46, 20);
+            this.roundNUD.TabIndex = 17;
+            this.roundNUD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.roundNUD.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(182, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(15, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "R";
             // 
             // Form1
             // 
@@ -465,6 +494,7 @@
             this.Name = "Form1";
             this.Text = "Оптимальное поведение потребителя";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -473,6 +503,7 @@
             this.groupBox3.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roundNUD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -518,7 +549,8 @@
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown roundNUD;
     }
 }
 
