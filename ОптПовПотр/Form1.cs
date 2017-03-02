@@ -62,14 +62,14 @@ namespace ОптПовПотр
             int kolznak;
             try
             {
-                p1 = int.Parse(textBox1.Text) + int.Parse(textBox7.Text);
-                p2 = int.Parse(textBox2.Text) + int.Parse(textBox7.Text);
-                p3 = int.Parse(textBox3.Text) + int.Parse(textBox7.Text);
-                alpha = int.Parse(textBox4.Text); 
-                betta = int.Parse(textBox5.Text);
-                gamma = int.Parse(textBox6.Text);
-                n = int.Parse(textBox7.Text);
-                m = int.Parse(textBox8.Text);
+                p1 = double.Parse(textBox1.Text) + double.Parse(textBox7.Text);
+                p2 = double.Parse(textBox2.Text) + double.Parse(textBox7.Text);
+                p3 = double.Parse(textBox3.Text) + double.Parse(textBox7.Text);
+                alpha = double.Parse(textBox4.Text); 
+                betta = double.Parse(textBox5.Text);
+                gamma = double.Parse(textBox6.Text);
+                n = double.Parse(textBox7.Text);
+                m = double.Parse(textBox8.Text);
                 kolznak = (int)roundNUD.Value;
             }
             catch(FormatException)
