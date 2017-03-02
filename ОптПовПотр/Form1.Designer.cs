@@ -69,6 +69,8 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.решениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.использоватьЛогарифмическуюФункциюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roundNUD)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -261,7 +263,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(262, 140);
+            this.groupBox1.Size = new System.Drawing.Size(262, 145);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ввод исходных данных";
@@ -315,22 +317,20 @@
             this.groupBox2.Controls.Add(this.flowLayoutPanel2);
             this.groupBox2.Location = new System.Drawing.Point(280, 27);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(542, 140);
+            this.groupBox2.Size = new System.Drawing.Size(542, 145);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Постановка задачи";
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel2.AutoScroll = true;
             this.flowLayoutPanel2.Controls.Add(this.label12);
             this.flowLayoutPanel2.Controls.Add(this.U_label);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(6, 15);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(530, 118);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(536, 126);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // label12
@@ -359,9 +359,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.ansRTB);
-            this.groupBox3.Location = new System.Drawing.Point(12, 173);
+            this.groupBox3.Location = new System.Drawing.Point(12, 175);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(810, 376);
+            this.groupBox3.Size = new System.Drawing.Size(810, 375);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Решение задачи";
@@ -375,7 +375,7 @@
             this.ansRTB.Name = "ansRTB";
             this.ansRTB.ReadOnly = true;
             this.ansRTB.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.ansRTB.Size = new System.Drawing.Size(804, 357);
+            this.ansRTB.Size = new System.Drawing.Size(804, 356);
             this.ansRTB.TabIndex = 0;
             this.ansRTB.Text = "";
             // 
@@ -383,6 +383,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
+            this.решениеToolStripMenuItem,
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -467,6 +468,7 @@
             // 
             // printDialog1
             // 
+            this.printDialog1.Document = this.printDocument1;
             this.printDialog1.UseEXDialog = true;
             // 
             // printDocument1
@@ -482,6 +484,23 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
+            // 
+            // решениеToolStripMenuItem
+            // 
+            this.решениеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.использоватьЛогарифмическуюФункциюToolStripMenuItem});
+            this.решениеToolStripMenuItem.Name = "решениеToolStripMenuItem";
+            this.решениеToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.решениеToolStripMenuItem.Text = "Решение";
+            // 
+            // использоватьЛогарифмическуюФункциюToolStripMenuItem
+            // 
+            this.использоватьЛогарифмическуюФункциюToolStripMenuItem.CheckOnClick = true;
+            this.использоватьЛогарифмическуюФункциюToolStripMenuItem.Name = "использоватьЛогарифмическуюФункциюToolStripMenuItem";
+            this.использоватьЛогарифмическуюФункциюToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
+            this.использоватьЛогарифмическуюФункциюToolStripMenuItem.Size = new System.Drawing.Size(339, 22);
+            this.использоватьЛогарифмическуюФункциюToolStripMenuItem.Text = "Использовать логарифмическую функцию";
+            this.использоватьЛогарифмическуюФункциюToolStripMenuItem.Click += new System.EventHandler(this.использоватьЛогарифмическуюФункциюToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -554,6 +573,8 @@
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown roundNUD;
+        private System.Windows.Forms.ToolStripMenuItem решениеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem использоватьЛогарифмическуюФункциюToolStripMenuItem;
     }
 }
 

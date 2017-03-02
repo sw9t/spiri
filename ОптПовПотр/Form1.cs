@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Printing;
-using System.IO;
 using System.Windows.Forms;
 using ОптПовПотр.Properties;
 
@@ -25,15 +24,15 @@ namespace ОптПовПотр
             printDocument1.DefaultPageSettings.Margins = new Margins(50, 50, 50, 50);
         }
 
-        private void OnPrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        private void OnPrintPage(object sender, PrintPageEventArgs e)
         {
             int charactersOnPage = 0;
             int linesPerPage = 0;
             e.Graphics.MeasureString(stringToPrint, ansRTB.Font,
-                e.MarginBounds.Size, StringFormat.GenericTypographic,
+                e.MarginBounds.Size, StringFormat.GenericDefault,
                 out charactersOnPage, out linesPerPage);
             e.Graphics.DrawString(stringToPrint, ansRTB.Font, this_color,
-                e.MarginBounds, StringFormat.GenericTypographic);
+                e.MarginBounds, StringFormat.GenericDefault);
             stringToPrint = stringToPrint.Substring(charactersOnPage);
             e.HasMorePages = (stringToPrint.Length > 0);
             if (!e.HasMorePages)
@@ -131,11 +130,15 @@ namespace ОптПовПотр
                 "2. Вычислить реакции потребителя при изменении дохода и цен в точке оптимума.\r\n" + 
                 "3. Вычислить предельные полезности товаров в точке оптимума.\r\n" + 
                 "4. Вычислить норму замещения для 2-го и 3-го товаров в точке оптимума.\r\n" +
-                "5. Вычислить коэффициенты эластичности по доходу и ценам для заданных цен и дохода.\r\n\r\n");
+                "5. Вычислить коэффициенты эластичности по доходу и ценам для заданных цен и дохода.\r\n");
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+            ansRTB.AppendText(String.Format("    U = {0}*x1*x2 + {1}*x1*x3 + {2}*x2*x3\r\n" +
+                                            "    p1 = {3}, p2 = {4}, p3 = {5}\r\n",
+                alpha, betta, gamma, p1, p2, p3));
             ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
             ansRTB.AppendText("Математическая модель задачи имеет вид:\r\n");
             ansRTB.AppendText("    xj >= 0, j=[1,3]\r\n" +
-                              "    x1p1 + x2p2 + x3p3 = M\r\n  U = αx1x2 + βx1x3 + γx2x3 --> max\r\n");
+                              "    x1p1 + x2p2 + x3p3 = M\r\n    U = αx1x2 + βx1x3 + γx2x3 --> max\r\n");
 
             ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
             ansRTB.AppendText("Функция Лагранжа:\r\n");
@@ -664,9 +667,40 @@ namespace ОптПовПотр
         }
         private void сохранитьРешениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveFileDialog sfd = new SaveFileDialog();
-            if (sfd.ShowDialog() == DialogResult.OK)
-                File.WriteAllText(sfd.FileName, ansRTB.Text);
+            bool IsChanged = true;
+            SaveFileDialog saveFileAs = new SaveFileDialog
+            {
+                Filter = "RTF файлы (*.rtf)|*.rtf|Текстовые файлы (*.txt)|*.txt",
+                //CheckFileExists = false,
+                CheckPathExists = true,
+                AddExtension = true,
+                AutoUpgradeEnabled = true,
+                FileName = "Results",
+                Title = "Сохранить вычисления в файл (рекомендуется RTF)",
+            };
+            do
+            {
+                if (saveFileAs.ShowDialog() == DialogResult.Cancel) break;
+                if (saveFileAs.FilterIndex == 1)
+                {
+                    ansRTB.SaveFile(saveFileAs.FileName, RichTextBoxStreamType.RichText);
+                    IsChanged = false;
+                }
+                else
+                {
+                    var SaveAsConfirm = MessageBox.Show(
+                        "При сохранении форматированного текста в файл TXT форматирование будет утрачено\n" +
+                        "Вы действительно хотите сохранить его в текстовый файл?",
+                        "Внимание! Обнаружено форматирование текста",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (SaveAsConfirm == DialogResult.No) continue;
+                    ansRTB.SaveFile(saveFileAs.FileName, RichTextBoxStreamType.PlainText);
+                    IsChanged = false;
+                }
+                MessageBox.Show("Результат сохранен в файл " + saveFileAs.FileName,
+                    "Вычисления сохранены", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            while (IsChanged);
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -695,6 +729,18 @@ namespace ОптПовПотр
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void использоватьЛогарифмическуюФункциюToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (использоватьЛогарифмическуюФункциюToolStripMenuItem.Checked)
+            {
+                //использовать функцию
+            }
+            else
+            {
+                //или не использовать...
+            }
         }
     }
 }
