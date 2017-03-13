@@ -149,6 +149,54 @@ namespace ОптПовПотр
 
             #region Значения благ
             ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+            ansRTB.AppendText("Найдем частные производные функции Лагранжа:\r\n");
+            ansRTB.AppendText(String.Format("    dL/dx1= {0}x2+{1}x3-λp1=0\r\n" +
+                                            "    dL/dx2= {0}x1+{2}x3-λp2=0\r\n" +
+                                            "    dL/dx3= {1}x1+{2}x2-λp3=0\r\n" +
+                                            "    dL/dλ= M-p1x1-p2x2-p3x3=0\r\n",
+                Math.Round(alpha, kolznak), Math.Round(betta, kolznak), Math.Round(gamma, kolznak)));
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+            ansRTB.AppendText("Получим систему\r\n");
+            ansRTB.AppendText(String.Format("          {0}x2+{1}x3=λp1\r\n" +
+                                            "    {0}x1      +{2}x3=λp2\r\n" +
+                                            "    {1}x1+{2}x2      =λp3\r\n" ,
+                Math.Round(alpha, kolznak), Math.Round(betta, kolznak), Math.Round(gamma, kolznak)));
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+            ansRTB.AppendText("Найдем определители:\r\n");
+            ansRTB.AppendText(String.Format("          |0    {0}    {1}|\r\n" +
+                                            "     D=|{0}    0    {2}|={3}\r\n" +
+                                            "          |{1}    {2}    0|\r\n",
+                Math.Round(alpha, kolznak), Math.Round(betta, kolznak), Math.Round(gamma, kolznak), Math.Round(2*alpha*betta*gamma, kolznak)));
+            
+            ansRTB.AppendText(String.Format("          |λp1  {0}  {1}|\r\n" +
+                                            "   D1=|λp2  0  {2}|={4}λp2+{3}λp3-{5}λp1\r\n" +
+                                            "          |λp3  {2}  0|\r\n",
+                Math.Round(alpha, kolznak), Math.Round(betta, kolznak), Math.Round(gamma, kolznak), Math.Round( alpha * gamma, kolznak), Math.Round( betta * gamma, kolznak), Math.Round(gamma * gamma, kolznak)));
+
+            ansRTB.AppendText(String.Format("          |0  λp1  {1}|\r\n" +
+                                            "   D2=|{0}  λp2  {2}|={3}λp1+{4}λp3-{5}λp2\r\n" +
+                                            "          |{1}  λp3  0|\r\n",
+                Math.Round(alpha, kolznak), Math.Round(betta, kolznak), Math.Round(gamma, kolznak), Math.Round(betta * gamma, kolznak), Math.Round(betta * alpha, kolznak), Math.Round(betta*betta, kolznak)));
+            ansRTB.AppendText(String.Format("          |0  {0}  λp1|\r\n" +
+                                             "   D3=|{0}  0  λp1|={3}λp2+{4}λp1-{5}λp3\r\n" +
+                                             "          |{1}  {2}  λp1|\r\n",
+                 Math.Round(alpha, kolznak), Math.Round(betta, kolznak), Math.Round(gamma, kolznak), Math.Round(betta * alpha, kolznak), Math.Round(gamma * alpha, kolznak), Math.Round(alpha * alpha, kolznak)));
+
+
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+            ansRTB.AppendText("Тогда:\r\n");
+            ansRTB.AppendText(String.Format("x1=({0}λp2+{1}λp3-{2}λp1)/{3}=λ({0}p2+{1}p3-{2}p1)/{3}\r\n",
+                Math.Round(betta*gamma, kolznak), Math.Round( alpha  * gamma, kolznak), Math.Round(gamma * gamma, kolznak), Math.Round(2 * alpha * betta * gamma, kolznak)));
+            ansRTB.AppendText(String.Format("x2=({0}λp1+{1}λp3-{2}λp2)/{3}=λ({0}p1+{1}p3-{2}p2)/{3}\r\n",
+               Math.Round(betta * gamma, kolznak), Math.Round(betta * alpha, kolznak), Math.Round(betta*betta, kolznak), Math.Round(2 * alpha * betta * gamma, kolznak)));
+            ansRTB.AppendText(String.Format("x3=({0}λp2+{1}λp1-{2}λp3)/{3}=λ({0}p2+{1}p1-{2}p3)/{3}\r\n",
+              Math.Round(betta * alpha, kolznak), Math.Round(gamma * alpha, kolznak), Math.Round(alpha * alpha, kolznak), Math.Round(2 * alpha * betta * gamma, kolznak)));
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+            ansRTB.AppendText("Подставим эти значения в уравнение:x1p1+x2p2+x3p3=M\r\n");
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+            ansRTB.AppendText("Получим\r\n");
+
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
             ansRTB.AppendText("При заданных ценах и доходе необходимо приобрести:\r\n");
             ansRTB.AppendText(String.Format("    1-го блага - {0} единиц,\r\n" +
                                             "    2-го блага - {1} единиц,\r\n" +

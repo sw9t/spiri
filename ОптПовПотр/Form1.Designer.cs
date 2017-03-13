@@ -63,14 +63,14 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.закрытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.решениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.использоватьЛогарифмическуюФункциюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вызовСправкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.решениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.использоватьЛогарифмическуюФункциюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roundNUD)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -85,7 +85,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(46, 20);
             this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "136";
+            this.textBox1.Text = "131";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox2
@@ -94,7 +94,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(46, 20);
             this.textBox2.TabIndex = 2;
-            this.textBox2.Text = "186";
+            this.textBox2.Text = "181";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox3
@@ -103,7 +103,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(46, 20);
             this.textBox3.TabIndex = 3;
-            this.textBox3.Text = "216";
+            this.textBox3.Text = "211";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox4
@@ -112,7 +112,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(46, 20);
             this.textBox4.TabIndex = 4;
-            this.textBox4.Text = "3";
+            this.textBox4.Text = "4";
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox5
@@ -130,7 +130,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(46, 20);
             this.textBox6.TabIndex = 6;
-            this.textBox6.Text = "4";
+            this.textBox6.Text = "6";
             this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox7
@@ -226,7 +226,7 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(66, 20);
             this.textBox8.TabIndex = 7;
-            this.textBox8.Text = "6240";
+            this.textBox8.Text = "6040";
             this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // button1
@@ -441,6 +441,23 @@
             this.закрытьToolStripMenuItem.Text = "Закрыть";
             this.закрытьToolStripMenuItem.Click += new System.EventHandler(this.закрытьToolStripMenuItem_Click);
             // 
+            // решениеToolStripMenuItem
+            // 
+            this.решениеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.использоватьЛогарифмическуюФункциюToolStripMenuItem});
+            this.решениеToolStripMenuItem.Name = "решениеToolStripMenuItem";
+            this.решениеToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.решениеToolStripMenuItem.Text = "Решение";
+            // 
+            // использоватьЛогарифмическуюФункциюToolStripMenuItem
+            // 
+            this.использоватьЛогарифмическуюФункциюToolStripMenuItem.CheckOnClick = true;
+            this.использоватьЛогарифмическуюФункциюToolStripMenuItem.Name = "использоватьЛогарифмическуюФункциюToolStripMenuItem";
+            this.использоватьЛогарифмическуюФункциюToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
+            this.использоватьЛогарифмическуюФункциюToolStripMenuItem.Size = new System.Drawing.Size(339, 22);
+            this.использоватьЛогарифмическуюФункциюToolStripMenuItem.Text = "Использовать логарифмическую функцию";
+            this.использоватьЛогарифмическуюФункциюToolStripMenuItem.Click += new System.EventHandler(this.использоватьЛогарифмическуюФункциюToolStripMenuItem_Click);
+            // 
             // справкаToolStripMenuItem
             // 
             this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -484,23 +501,6 @@
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
-            // 
-            // решениеToolStripMenuItem
-            // 
-            this.решениеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.использоватьЛогарифмическуюФункциюToolStripMenuItem});
-            this.решениеToolStripMenuItem.Name = "решениеToolStripMenuItem";
-            this.решениеToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-            this.решениеToolStripMenuItem.Text = "Решение";
-            // 
-            // использоватьЛогарифмическуюФункциюToolStripMenuItem
-            // 
-            this.использоватьЛогарифмическуюФункциюToolStripMenuItem.CheckOnClick = true;
-            this.использоватьЛогарифмическуюФункциюToolStripMenuItem.Name = "использоватьЛогарифмическуюФункциюToolStripMenuItem";
-            this.использоватьЛогарифмическуюФункциюToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
-            this.использоватьЛогарифмическуюФункциюToolStripMenuItem.Size = new System.Drawing.Size(339, 22);
-            this.использоватьЛогарифмическуюФункциюToolStripMenuItem.Text = "Использовать логарифмическую функцию";
-            this.использоватьЛогарифмическуюФункциюToolStripMenuItem.Click += new System.EventHandler(this.использоватьЛогарифмическуюФункциюToolStripMenuItem_Click);
             // 
             // Form1
             // 
