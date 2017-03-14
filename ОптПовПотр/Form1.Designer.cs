@@ -339,7 +339,7 @@
             this.label12.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label12.Location = new System.Drawing.Point(3, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(502, 90);
+            this.label12.Size = new System.Drawing.Size(502, 105);
             this.label12.TabIndex = 0;
             this.label12.Text = resources.GetString("label12.Text");
             // 
@@ -347,7 +347,7 @@
             // 
             this.U_label.AutoSize = true;
             this.U_label.Font = new System.Drawing.Font("Times New Roman", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.U_label.Location = new System.Drawing.Point(3, 90);
+            this.U_label.Location = new System.Drawing.Point(3, 105);
             this.U_label.Name = "U_label";
             this.U_label.Size = new System.Drawing.Size(32, 18);
             this.U_label.TabIndex = 1;

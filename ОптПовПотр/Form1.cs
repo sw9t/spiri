@@ -126,8 +126,8 @@ namespace ОптПовПотр
             ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
             ansRTB.AppendText("Условие задачи:\r\n");
             ansRTB.AppendText("Дана функция полезности U(x1, x2, x3). Требуется:\r\n" + 
-                "1. Решить задачу оптимального поведения при заданных ценах p1, p2, p3 и доходе M.\r\n" + 
-                "2. Вычислить реакции потребителя при изменении дохода и цен в точке оптимума.\r\n" + 
+                "1. Решить задачу оптимального поведения при заданных ценах p1, p2, p3 и доходе M.\r\n" +
+                "2. Найти функцию спроса потребителя и вычислить реакции потребителя при изменении дохода и цен в точке оптимума.\r\n" + 
                 "3. Вычислить предельные полезности товаров в точке оптимума.\r\n" + 
                 "4. Вычислить норму замещения для 2-го и 3-го товаров в точке оптимума.\r\n" +
                 "5. Вычислить коэффициенты эластичности по доходу и ценам для заданных цен и дохода.\r\n");
@@ -195,6 +195,34 @@ namespace ОптПовПотр
             ansRTB.AppendText("Подставим эти значения в уравнение:x1p1+x2p2+x3p3=M\r\n");
             ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
             ansRTB.AppendText("Получим\r\n");
+            ansRTB.AppendText(String.Format("p1(-{2}λp1+{0}λp2+{1}λp3)/{3}+p2({4}λp1-{6}λp2+{5}λp3)/{3}+p3({8}λp1+{7}λp2-{9}λp3)/{3}=M\r\n",
+               Math.Round(betta * gamma, kolznak), Math.Round(alpha * gamma, kolznak), Math.Round(gamma * gamma, kolznak), Math.Round(2 * alpha * betta * gamma, kolznak), Math.Round(betta * gamma, kolznak), Math.Round(alpha * betta, kolznak), Math.Round(betta * betta, kolznak), Math.Round(alpha * betta, kolznak), Math.Round(alpha * gamma, kolznak), Math.Round(alpha*alpha, kolznak)));
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+            ansRTB.AppendText("Преобразуем это уравнение, умножим левую и правую части на "+ 2*alpha*betta*gamma+ " и проведем действия:\r\n");
+
+            ansRTB.AppendText(String.Format("λ(-{2}p1^2+{0}p2p1+{1}p3p1+{4}p1p2-{6}p2^2+{5}p3p2+{8}p1p3+{7}p2p3-{9}p3^2)={3}M\r\n",
+              Math.Round(betta * gamma, kolznak), Math.Round(alpha * gamma, kolznak), Math.Round(gamma * gamma, kolznak), Math.Round(2 * alpha * betta * gamma, kolznak), Math.Round(betta * gamma, kolznak), Math.Round(alpha * betta, kolznak), Math.Round(betta * betta, kolznak), Math.Round(alpha * betta, kolznak), Math.Round(alpha * gamma, kolznak), Math.Round(alpha * alpha, kolznak)));
+            ansRTB.AppendText(String.Format("λ={3}M/(-{2}p1^2+{0}p2p1+{1}p3p1+{4}p1p2-{6}p2^2+{5}p3p2+{8}p1p3+{7}p2p3-{9}p3^2)\r\n",
+              Math.Round(betta * gamma, kolznak), Math.Round(alpha * gamma, kolznak), Math.Round(gamma * gamma, kolznak), Math.Round(2 * alpha * betta * gamma, kolznak), Math.Round(betta * gamma, kolznak), Math.Round(alpha * betta, kolznak), Math.Round(betta * betta, kolznak), Math.Round(alpha * betta, kolznak), Math.Round(alpha * gamma, kolznak), Math.Round(alpha * alpha, kolznak)));
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+            ansRTB.AppendText("Обозначим:\r\n");
+            ansRTB.AppendText(String.Format("V=-{2}p1^2+{0}p2p1+{1}p3p1-{5}p2^2+{4}p3p2-{8}p3^2\r\n",
+              Math.Round(2*betta * gamma, kolznak), Math.Round(2*alpha * gamma, kolznak), Math.Round(gamma * gamma, kolznak), Math.Round(betta * gamma, kolznak), Math.Round(2*alpha * betta, kolznak), Math.Round(betta * betta, kolznak), Math.Round(alpha * betta, kolznak), Math.Round(alpha * gamma, kolznak), Math.Round(alpha * alpha, kolznak)));
+
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+            ansRTB.AppendText("Тогда:\r\n");
+            ansRTB.AppendText(String.Format("λ={0}M/V\r\n",
+               Math.Round(alpha * betta*gamma*2, kolznak)));
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+            ansRTB.AppendText("и функции спроса потребителя принимают вид:\r\n");
+            ansRTB.AppendText(String.Format("x1=(M/V)*({0}p2+{1}p3-{2}p1)\r\n",
+                Math.Round(betta * gamma, kolznak), Math.Round(alpha * gamma, kolznak), Math.Round(gamma * gamma, kolznak)));
+            ansRTB.AppendText(String.Format("x2=(M/V)*({0}p1+{1}p3-{2}p2)\r\n",
+               Math.Round(betta * gamma, kolznak), Math.Round(betta * alpha, kolznak), Math.Round(betta * betta, kolznak)));
+            ansRTB.AppendText(String.Format("x3=(M/V)*({0}p2+{1}p1-{2}p3)\r\n",
+              Math.Round(betta * alpha, kolznak), Math.Round(gamma * alpha, kolznak), Math.Round(alpha * alpha, kolznak)));
+           
+          
 
             ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
             ansRTB.AppendText("При заданных ценах и доходе необходимо приобрести:\r\n");
