@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ОптПовПотр", "ОптПовПотр\ОптПовПотр.csproj", "{BCC2EBB7-9635-4BC6-86DA-A94FF8E7C8DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Кобба-Дуглас", "Кобба-Дуглас\Кобба-Дуглас.csproj", "{82F43357-F125-4E30-9EB8-5F90C56473F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BCC2EBB7-9635-4BC6-86DA-A94FF8E7C8DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCC2EBB7-9635-4BC6-86DA-A94FF8E7C8DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCC2EBB7-9635-4BC6-86DA-A94FF8E7C8DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82F43357-F125-4E30-9EB8-5F90C56473F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82F43357-F125-4E30-9EB8-5F90C56473F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82F43357-F125-4E30-9EB8-5F90C56473F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82F43357-F125-4E30-9EB8-5F90C56473F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

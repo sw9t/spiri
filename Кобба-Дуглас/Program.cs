@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace ОптПовПотр
+namespace Кобба_Дуглас
 {
     static class Program
     {
@@ -13,7 +14,7 @@ namespace ОптПовПотр
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new App1());
+            Application.Run(new App2());
         }
     }
 }

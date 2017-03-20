@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BCC2EBB7-9635-4BC6-86DA-A94FF8E7C8DB}</ProjectGuid>
+    <ProjectGuid>{82F43357-F125-4E30-9EB8-5F90C56473F0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ОптПовПотр</RootNamespace>
-    <AssemblyName>ОптПовПотр</AssemblyName>
+    <RootNamespace>Кобба_Дуглас</RootNamespace>
+    <AssemblyName>Кобба-Дуглас</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -41,16 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App1.cs">
+    <Compile Include="App2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="App1.Designer.cs">
-      <DependentUpon>App1.cs</DependentUpon>
+    <Compile Include="App2.Designer.cs">
+      <DependentUpon>App2.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="App1.resx">
-      <DependentUpon>App1.cs</DependentUpon>
+    <EmbeddedResource Include="App2.resx">
+      <DependentUpon>App2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -71,18 +70,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\alpha.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\beta.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\gamma.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
