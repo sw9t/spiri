@@ -151,7 +151,7 @@
             this.saveSolutionTSMI.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.saveSolutionTSMI.Size = new System.Drawing.Size(245, 22);
             this.saveSolutionTSMI.Text = "Сохранить решение";
-            this.saveSolutionTSMI.Click += new System.EventHandler(this.сохранитьРешениеToolStripMenuItem_Click);
+            this.saveSolutionTSMI.Click += new System.EventHandler(this.SaveSolutionTSMI_Click);
             // 
             // toolStripSeparator1
             // 
@@ -165,6 +165,7 @@
             | System.Windows.Forms.Keys.P)));
             this.printPreviewTSMI.Size = new System.Drawing.Size(245, 22);
             this.printPreviewTSMI.Text = "Просмотр печати";
+            this.printPreviewTSMI.Click += new System.EventHandler(this.printPreviewTSMI_Click);
             // 
             // printTSMI
             // 
@@ -172,6 +173,7 @@
             this.printTSMI.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
             this.printTSMI.Size = new System.Drawing.Size(245, 22);
             this.printTSMI.Text = "Печать";
+            this.printTSMI.Click += new System.EventHandler(this.printTSMI_Click);
             // 
             // closeAppTSMI
             // 
@@ -179,7 +181,7 @@
             this.closeAppTSMI.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.closeAppTSMI.Size = new System.Drawing.Size(245, 22);
             this.closeAppTSMI.Text = "Закрыть";
-            this.closeAppTSMI.Click += new System.EventHandler(this.закрытьToolStripMenuItem_Click);
+            this.closeAppTSMI.Click += new System.EventHandler(this.CloseTSMI_Click);
             // 
             // HelpMenu
             // 
@@ -196,7 +198,7 @@
             this.HelpTSMI.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.HelpTSMI.Size = new System.Drawing.Size(175, 22);
             this.HelpTSMI.Text = "Вызов справки";
-            this.HelpTSMI.Click += new System.EventHandler(this.вызовСправкиToolStripMenuItem_Click);
+            this.HelpTSMI.Click += new System.EventHandler(this.HelpTSMI_Click);
             // 
             // aboutTSMI
             // 
@@ -500,6 +502,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "App2";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

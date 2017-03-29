@@ -192,7 +192,7 @@ namespace Кобба_Дуглас
             #endregion
             #region Пункт 4. Копираста пункта 1
             ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
-            ansRTB.AppendText("4. Найдем коэффициенты эластичности выпуска по ресурсам и эластичности от расширения масштабов производства.\r\n");
+            ansRTB.AppendText("\r\n4. Найдем коэффициенты эластичности выпуска по ресурсам и эластичности от расширения масштабов производства.\r\n");
             ansRTB.AppendText("Коэффициенты эластичности выпуска продукции по 1-му ресурсу:\r\n");
             ansRTB.AppendText(String.Format("    E1 = dy/dx1 * x1/y = {0}\r\n" +
             "При увеличении объема использование ресурса 1-го вида на 1% выпуска продукции увеличивается на {0}%\r\n", E1));
@@ -238,11 +238,11 @@ namespace Кобба_Дуглас
             ansRTB.AppendText(
                 String.Format(
                     "Чтобы освободить единицу ресурса 2-го вида, при  условии, что выпуск продукции не изменился," +
-                    "необходимо дополнительно использовать {0} единиц ресурса 1-го вида", n12));
+                    "необходимо дополнительно использовать {0} единиц ресурса 1-го вида\r\n", n12));
             #endregion
             #region Пункт 6. Здравствуй, жопа, Новый год
             ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
-            ansRTB.AppendText("6. Найдем оптимальный выбор производителя по критерию максимальной прибыли в условиях " +
+            ansRTB.AppendText("\r\n6. Найдем оптимальный выбор производителя по критерию максимальной прибыли в условиях " +
                               "совершенной конкуренции при заданных ценах на продукцию и ресурсы:\r\n");
             ansRTB.AppendText(String.Format("    p = {0}, q1 = {1}, q2 = {2}\r\n", p, q1, q2));
             ansRTB.AppendText("Модель оптимального выбора производителя в условиях совершенной конкуренции имеет вид:\r\n");
@@ -313,11 +313,11 @@ namespace Кобба_Дуглас
                     Math.Round(x1_ov, R),
                     Math.Round(x2_ov, R)));
             ansRTB.AppendText("При этом будет выпущено продукции:\r\n");
-            ansRTB.AppendText(String.Format("y* = {0}*(x1*)^{1}*(x2*)^{2} = {0}*{3}^{1}*{4}^{2} = {5}\r\n",
+            ansRTB.AppendText(String.Format("    y* = {0}*(x1*)^{1}*(x2*)^{2} = {0}*{3}^{1}*{4}^{2} = {5}\r\n",
                 A, alpha, beta, Math.Round(x1_ov, R),
                 Math.Round(x2_ov, R), Math.Round(yp, R)));
             ansRTB.AppendText("и максимальная прибыль составит\r\n");
-            ansRTB.AppendText(String.Format("П* = p * y* - q1 * x1* - q2 * x2* = {0}*{1} - {2}*{3} - {4}*{5} = {6}\r\n",
+            ansRTB.AppendText(String.Format("    П* = p * y* - q1 * x1* - q2 * x2* = {0}*{1} - {2}*{3} - {4}*{5} = {6}\r\n",
                 p, yp, q1, Math.Round(x1_ov, R), q2, Math.Round(x2_ov, R), Math.Round(pesozvezchkoy, R)));
             #endregion
             #region Пункт 7
@@ -325,8 +325,8 @@ namespace Кобба_Дуглас
             ansRTB.AppendText("\r\n7. Функции спроса на ресурсы имеют вид:\r\n");
             ansRTB.AppendText(
                 String.Format(
-                    "x1* = ({2}*p^{3})/(q1^{4}*q2^{5})\r\n" +
-                    "x2* = ({6}*p^{3})/(q1^{7}*q2^{8})\r\n",
+                    "    x1* = ({2}*p^{3})/(q1^{4}*q2^{5})\r\n" +
+                    "    x2* = ({6}*p^{3})/(q1^{7}*q2^{8})\r\n",
                     beta, alpha,
                     Math.Round(x1_ch, R),
                     Math.Round(1 / (-alpha - beta + 1), R),
@@ -339,7 +339,7 @@ namespace Кобба_Дуглас
             ansRTB.AppendText("Функция предложения продукции:\r\n");
             ansRTB.AppendText(
                 String.Format(
-                    "y = {0}*x1^{1}*x2^{2} = {0}*({3}*p^{4}/(q1^{5}*q2^{6}))^{1}*(({7}*p^{4})/(q1^{8}*q2^{9}))^{2} = \r\n" +
+                    "    y = {0}*x1^{1}*x2^{2} = {0}*({3}*p^{4}/(q1^{5}*q2^{6}))^{1}*(({7}*p^{4})/(q1^{8}*q2^{9}))^{2} = \r\n" +
                     "= {10}*p^{11}/q1^{12}*q2^{13}\r\n",
                     A, alpha, beta,
                     Math.Round(x1_ch, R),
@@ -362,9 +362,11 @@ namespace Кобба_Дуглас
             ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
             #region Реакции на продукцию
             ansRTB.AppendText("\r\n8. Найдем реакцию производителя при изменении цен на продукты и на ресурсы и коэффициенты эластичности при ценах:\r\n");
-            ansRTB.AppendText(String.Format("p = {0}, q1 = {1}, q2 = {2}\r\n", p, q1, q2));
+            ansRTB.AppendText(String.Format("    p = {0}, q1 = {1}, q2 = {2}\r\n", p, q1, q2));
+
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Italic);
             ansRTB.AppendText("Реакция производителя при изменении цен на продукцию.\r\n");
-            ansRTB.AppendText(String.Format("dx1* /dp = {0}*{1}*p^({1}-1)/(q1^{2}*q2^{3}) = {4}",
+            ansRTB.AppendText(String.Format("    dx1* /dp = {0}*{1}*p^({1}-1)/(q1^{2}*q2^{3}) = {4}",
                 Math.Round(x1_ch, R),
                 Math.Round(1 / (-alpha - beta + 1), R),
                 Math.Round((1 / (-alpha - beta + 1) * (-beta + 1)), R),
@@ -383,7 +385,7 @@ namespace Кобба_Дуглас
             {
                 ansRTB.AppendText(String.Format(s, "=", "не изменяется", "независимым"));
             }
-            ansRTB.AppendText(String.Format("dx2* /dp = {0}*{1}*p^({1}-1)/(q1^{2}*q2^{3}) = {4}",
+            ansRTB.AppendText(String.Format("    dx2* /dp = {0}*{1}*p^({1}-1)/(q1^{2}*q2^{3}) = {4}",
                 Math.Round(x2_ch, R),
                 Math.Round(1 / (-alpha - beta + 1), R),
                 Math.Round((1 / (-alpha - beta + 1) * (-beta + 1)) - 1, R),
@@ -402,7 +404,7 @@ namespace Кобба_Дуглас
             {
                 ansRTB.AppendText(String.Format(s, "=", "не изменяется", "независимым"));
             }
-            ansRTB.AppendText(String.Format("dy* /dp = {0}*{1}*p^({1}-1)/q1^{2}*q2^{3} = {4}", Math.Round(yfp, R),
+            ansRTB.AppendText(String.Format("    dy* /dp = {0}*{1}*p^({1}-1)/q1^{2}*q2^{3} = {4}", Math.Round(yfp, R),
                 Math.Round(1 / (-alpha - beta + 1) * (alpha + beta), R),
                 Math.Round(
                 (1 / (-alpha - beta + 1) * (-beta + 1) * alpha +
@@ -425,8 +427,9 @@ namespace Кобба_Дуглас
             }
             #endregion
             #region Реакции на факторы
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Italic);
             ansRTB.AppendText("Реакции производителя при изменении цен на факторы производства.\r\n");
-            ansRTB.AppendText(String.Format("dy* /dq1 = ({0}*p^{1}/q1^({2}+1)*q2^{3}) * (-{2}) = {4}", Math.Round(yfp, R),
+            ansRTB.AppendText(String.Format("    dy* /dq1 = ({0}*p^{1}/q1^({2}+1)*q2^{3}) * (-{2}) = {4}", Math.Round(yfp, R),
                 Math.Round(1 / (-alpha - beta + 1) * (alpha + beta), R),
                 Math.Round(
                 (1 / (-alpha - beta + 1) * (-beta + 1) * alpha +
@@ -447,7 +450,7 @@ namespace Кобба_Дуглас
                 ansRTB.AppendText("(=0)\r\n");
             }
 
-            ansRTB.AppendText(String.Format("dy* /dq2 = ({0}*p^{1}/q1^{2}*q2^({3}+1)) * (-{3}) = {4}", Math.Round(yfp, R),
+            ansRTB.AppendText(String.Format("    dy* /dq2 = ({0}*p^{1}/q1^{2}*q2^({3}+1)) * (-{3}) = {4}", Math.Round(yfp, R),
                 Math.Round(1 / (-alpha - beta + 1) * (alpha + beta), R),
                 Math.Round(
                 (1 / (-alpha - beta + 1) * (-beta + 1) * alpha +
@@ -468,25 +471,25 @@ namespace Кобба_Дуглас
                 ansRTB.AppendText("(=0)\r\n");
             }
 
-            ansRTB.AppendText(String.Format("dx1* /dq1 = ({0}*p^{1})/(q1^({2}+1)*q2^{3}) * (-{2}) = {4}\r\n",
+            ansRTB.AppendText(String.Format("    dx1* /dq1 = ({0}*p^{1})/(q1^({2}+1)*q2^{3}) * (-{2}) = {4}\r\n",
                 Math.Round(x1_ch, R),
                 Math.Round(1 / (-alpha - beta + 1), R),
                 Math.Round((1 / (-alpha - beta + 1) * (-beta + 1)), R),
                 Math.Round(1 / (-alpha - beta + 1) * beta, R),
                 Math.Round(dx1dq1, R)));
-            ansRTB.AppendText(String.Format("dx2* / dq2 = ({0}*p^{1})/(q1^{2}*q2^({3}+1)) * (-{3}) = {4}\r\n",
+            ansRTB.AppendText(String.Format("    dx2* / dq2 = ({0}*p^{1})/(q1^{2}*q2^({3}+1)) * (-{3}) = {4}\r\n",
                 Math.Round(x2_ch, R),
                 Math.Round(1 / (-alpha - beta + 1), R),
                 Math.Round(1 / (-alpha - beta + 1) * (-beta + 1) - 1, R),
                 Math.Round(1 / (-alpha - beta + 1) * beta + 1, R),
                 Math.Round(dx2dq2, R)));
-            ansRTB.AppendText(String.Format("dx1* /dq2 = ({0}*p^{1})/(q1^{2}*q2^({3}+1)) * (-{3}) = {4}\r\n",
+            ansRTB.AppendText(String.Format("    dx1* /dq2 = ({0}*p^{1})/(q1^{2}*q2^({3}+1)) * (-{3}) = {4}\r\n",
                 Math.Round(x1_ch, R),
                 Math.Round(1 / (-alpha - beta + 1), R),
                 Math.Round((1 / (-alpha - beta + 1) * (-beta + 1)), R),
                 Math.Round(1 / (-alpha - beta + 1) * beta, R),
                 Math.Round(dx1dq2, R)));
-            ansRTB.AppendText(String.Format("dx2* /dq1 = ({0}*p^{1})/(q1^({2}+1)*q2^{3}) * (-{2}) = {4}\r\n",
+            ansRTB.AppendText(String.Format("    dx2* /dq1 = ({0}*p^{1})/(q1^({2}+1)*q2^{3}) * (-{2}) = {4}\r\n",
                 Math.Round(x2_ch, R),
                 Math.Round(1 / (-alpha - beta + 1), R),
                 Math.Round(1 / (-alpha - beta + 1) * (-beta + 1) - 1, R),
@@ -494,13 +497,15 @@ namespace Кобба_Дуглас
                 Math.Round(dx2dq1, R)));
             //TODO : Наклепать смысловые строчки
 
-            
+
 
             #endregion
-            ansRTB.AppendText("Определим коэффициенты эластичности по ценам на продукцию и на ресурсы\r\n");
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Bold);
+            ansRTB.AppendText("\r\nОпределим коэффициенты эластичности по ценам на продукцию и на ресурсы\r\n");
             #region 1-ый фактор
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Italic);
             ansRTB.AppendText("Для функции спроса на 1-ый фактор производства: \r\n");
-            ansRTB.AppendText(String.Format("E1p = (dx1* /dp) / (x1* / p) = (dx1* /dp)*(p / x1*) = {0}*{1}/{2} = {3}\r\n",
+            ansRTB.AppendText(String.Format("    E1p = (dx1* /dp) / (x1* / p) = (dx1* /dp)*(p / x1*) = {0}*{1}/{2} = {3}\r\n",
                 Math.Round(dx1dp, R), p, Math.Round(x1_ov, R), Math.Round(e1p, R)));
             s = "При увеличении цены продукции на 1% спрос на 1-ый фактор производства {0} на {1}%\r\n";
             if (e1p > 0)
@@ -513,7 +518,7 @@ namespace Кобба_Дуглас
             }
 
             ansRTB.AppendText(
-                String.Format("E1q1 = (dx1* /dq1) / (x1* / q1) = (dx1* /dq1)*(q1 / x1*) = {0}*{1}/{2} = {3}\r\n",
+                String.Format("    E1q1 = (dx1* /dq1) / (x1* / q1) = (dx1* /dq1)*(q1 / x1*) = {0}*{1}/{2} = {3}\r\n",
                     Math.Round(dx1dq1, R), q1, Math.Round(x1_ov, R), Math.Round(e1q1, R)));
             s = "При увеличении цены 1-го фактора производства на 1% спрос на него {0} на {1}%\r\n";
             if (e1q1 > 0)
@@ -526,7 +531,7 @@ namespace Кобба_Дуглас
             }
 
             ansRTB.AppendText(
-                String.Format("E1q2 = (dx1* /dq2) / (x1* / q2) = (dx1* /dq2)*(q2 / x1*) = {0}*{1}/{2} = {3}\r\n",
+                String.Format("    E1q2 = (dx1* /dq2) / (x1* / q2) = (dx1* /dq2)*(q2 / x1*) = {0}*{1}/{2} = {3}\r\n",
                     Math.Round(dx1dq2, R), q2, Math.Round(x1_ov, R), Math.Round(e1q2, R)));
             s = "При увеличении цены 2-го фактора производства на 1% спрос на 1-ый фактор {0} на {1}%\r\n";
             if (e1q2 > 0)
@@ -541,13 +546,14 @@ namespace Кобба_Дуглас
             ansRTB.AppendText("Проверим основное свойство коэффициентов эластичности функции спроса на 1-ый " +
                 "фактор производства. Эта функция однородная нулеовй степени. Поэтому сумма всех ее коэффициентов " +
                 "эластичности равна нулю. Действительно,\r\n");
-            ansRTB.AppendText(String.Format("E1p + E1q1 + E1q2 = {0} + {1} + {2} = {3}\r\n",
+            ansRTB.AppendText(String.Format("    E1p + E1q1 + E1q2 = {0} + {1} + {2} = {3}\r\n",
                 Math.Round(e1p, R), Math.Round(e1q1, R), Math.Round(e1q2, R),
                 Math.Round(e1p + e1q1 + e1q2, R)));
             #endregion
             #region 2-ый фактор
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Italic);
             ansRTB.AppendText("Для функции спроса на 2-й фактор производства: \r\n");
-            ansRTB.AppendText(String.Format("E2p = (dx2* /dp) / (x2* / p) = (dx2* /dp)*(p / x2*) = {0}*{1}/{2} = {3}\r\n",
+            ansRTB.AppendText(String.Format("    E2p = (dx2* /dp) / (x2* / p) = (dx2* /dp)*(p / x2*) = {0}*{1}/{2} = {3}\r\n",
                 Math.Round(dx2dp, R), p, Math.Round(x2_ov, R), Math.Round(e2p, R)));
             s = "При увеличении цены продукции на 1% спрос на 2-й фактор производства {0} на {1}%\r\n";
             if (e2p > 0)
@@ -560,7 +566,7 @@ namespace Кобба_Дуглас
             }
 
             ansRTB.AppendText(
-                String.Format("E2q1 = (dx2* /dq1) / (x2* / q1) = (dx2* /dq1)*(q1 / x2*) = {0}*{1}/{2} = {3}\r\n",
+                String.Format("    E2q1 = (dx2* /dq1) / (x2* / q1) = (dx2* /dq1)*(q1 / x2*) = {0}*{1}/{2} = {3}\r\n",
                     Math.Round(dx2dq1, R), q1, Math.Round(x2_ov, R), Math.Round(e2q1, R)));
             s = "При увеличении цены 1-го фактора производства на 1% спрос на 2-й фактор {0} на {1}%\r\n";
             if (e2q1 > 0)
@@ -573,7 +579,7 @@ namespace Кобба_Дуглас
             }
 
             ansRTB.AppendText(
-                String.Format("E2q2 = (dx2* /dq2) / (x2* / q2) = (dx2* /dq2)*(q2 / x2*) = {0}*{1}/{2} = {3}\r\n",
+                String.Format("    E2q2 = (dx2* /dq2) / (x2* / q2) = (dx2* /dq2)*(q2 / x2*) = {0}*{1}/{2} = {3}\r\n",
                     Math.Round(dx2dq2, R), q2, Math.Round(x2_ov, R), Math.Round(e2q2, R)));
             s = "При увеличении цены 2-го фактора производства на 1% спрос на него {0} на {1}%\r\n";
             if (e2q2 > 0)
@@ -586,13 +592,14 @@ namespace Кобба_Дуглас
             }
 
             ansRTB.AppendText("Проверим основное свойство коэффициентов эластичности функции спроса на 2-й фактор производства:\r\n");
-            ansRTB.AppendText(String.Format("E2p + E2q1 + E2q2 = {0} + {1} + {2} = {3}\r\n",
+            ansRTB.AppendText(String.Format("    E2p + E2q1 + E2q2 = {0} + {1} + {2} = {3}\r\n",
                 Math.Round(e2p, R), Math.Round(e2q1, R), Math.Round(e2q2, R),
                 Math.Round(e2p + e2q1 + e2q2, R)));
             #endregion
             #region Предложение продукции
+            ansRTB.SelectionFont = new Font(ansRTB.Font, FontStyle.Italic);
             ansRTB.AppendText("Для функции предложения продукции: \r\n");
-            ansRTB.AppendText(String.Format("Eyp = (dy* /dp) / (y* / p) = (dy* /dp)*(p / y*) = {0}*{1}/{2} = {3}\r\n",
+            ansRTB.AppendText(String.Format("    Eyp = (dy* /dp) / (y* / p) = (dy* /dp)*(p / y*) = {0}*{1}/{2} = {3}\r\n",
                 Math.Round(dydp, R), p, Math.Round(yp, R), Math.Round(eyp, R)));
             s = "При увеличении цены продукции на 1% спрос на неё {0} на {1}%\r\n";
             if (eyp > 0)
@@ -605,7 +612,7 @@ namespace Кобба_Дуглас
             }
 
             ansRTB.AppendText(
-                String.Format("Eyq1 = (dy* /dq1) / (y* / q1) = (dy* /dq1)*(q1 / y*) = {0}*{1}/{2} = {3}\r\n",
+                String.Format("    Eyq1 = (dy* /dq1) / (y* / q1) = (dy* /dq1)*(q1 / y*) = {0}*{1}/{2} = {3}\r\n",
                     Math.Round(dydq1, R), q1, Math.Round(yp, R), Math.Round(eyq1, R)));
             s = "При увеличении цены 1-го фактора производства на 1% спрос на продукцию {0} на {1}%\r\n";
             if (eyq1 > 0)
@@ -618,7 +625,7 @@ namespace Кобба_Дуглас
             }
 
             ansRTB.AppendText(
-                String.Format("Eyq2 = (dy* /dq2) / (y* / q2) = (dy* /dq2)*(q2 / y*) = {0}*{1}/{2} = {3}\r\n",
+                String.Format("    Eyq2 = (dy* /dq2) / (y* / q2) = (dy* /dq2)*(q2 / y*) = {0}*{1}/{2} = {3}\r\n",
                     Math.Round(dydq2, R), q2, Math.Round(yp, R), Math.Round(eyq2, R)));
             s = "При увеличении цены 2-го фактора производства на 1% спрос на продукцию {0} на {1}%\r\n";
             if (eyq2 > 0)
@@ -631,7 +638,7 @@ namespace Кобба_Дуглас
             }
 
             ansRTB.AppendText("Проверим основное свойство коэффициентов эластичности функции предложения продукции:\r\n");
-            ansRTB.AppendText(String.Format("Eyp + Eyq1 + Eyq2 = {0} + {1} + {2} = {3}\r\n",
+            ansRTB.AppendText(String.Format("    Eyp + Eyq1 + Eyq2 = {0} + {1} + {2} = {3}\r\n",
                 Math.Round(eyp, R), Math.Round(eyq1, R), Math.Round(eyq2, R),
                 Math.Round(eyp + eyq1 + eyq2, R)));
             #endregion
@@ -646,11 +653,11 @@ namespace Кобба_Дуглас
             MessageBox.Show(Properties.Resources.developers,
                 "О программе", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        private void вызовСправкиToolStripMenuItem_Click(object sender, EventArgs e)
+        private void HelpTSMI_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Тут скоро будет справка");
         }
-        private void сохранитьРешениеToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SaveSolutionTSMI_Click(object sender, EventArgs e)
         {
             bool IsChanged = true;
             SaveFileDialog saveFileAs = new SaveFileDialog
@@ -691,17 +698,27 @@ namespace Кобба_Дуглас
         {
             //textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = textBox5.Text = textBox6.Text = textBox8.Text = ansRTB.Text = "";
         }
-        private void закрытьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CloseTSMI_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+
+        private void solveBtn_Click(object sender, EventArgs e)
+        {
+            U_label.Text = String.Format(U_label.Text, pTb.Text, q1Tb.Text, q2Tb.Text, "x10", "x20", "x1", "^1", "^2");
+            Solve();
+        }
+        #endregion
+
+        private void printPreviewTSMI_Click(object sender, EventArgs e)
         {
             //InitPrint();
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();
+
         }
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+
+        private void printTSMI_Click(object sender, EventArgs e)
         {
             if (printDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -709,16 +726,7 @@ namespace Кобба_Дуглас
                 printDocument1.Print();
 
             }
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
         }
-
-        private void solveBtn_Click(object sender, EventArgs e)
-        {
-            Solve();
-        }
-        #endregion
     }
 }
