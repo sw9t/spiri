@@ -120,14 +120,19 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>553, 17</value>
   </metadata>
-  <metadata name="printDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>668, 17</value>
-  </metadata>
-  <metadata name="printDocument1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>787, 17</value>
-  </metadata>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>Дана производная функции Кобба-Дугласа: y=A*x1^α*x2^β. Найти:
+1. Степень однородности функции
+2. Функцию издержек
+3. Предельные производительности ресурсов для заданных значений x1_0  и x2_0.
+4. Коэффициенты эластичности выпуска по ресурсам и эластичности от расширения масшатба производства.
+5. Предельную норму замещения ресурсов для заданных значений x1_0 и x2_0.
+6. Оптимальный выбор производителя по критерию максимальной прибыли в условиях совершенной конкуренции.
+7. Реакции производителя при изменении цен на продукцию и на ресурсы и соответствующие коэффициенты эластичности при заданных ценах
+</value>
+  </data>
   <metadata name="printPreviewDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
+    <value>688, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="printPreviewDialog1.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -303,18 +308,13 @@
         wf+0BQAAgAUAAIAFAACAAQAAgAHB/4ABAACAAQAAgAEAALwBAAC8AQAAvAHB/4ABbP///5H/
 </value>
   </data>
-  <data name="textBox1.Text" xml:space="preserve">
-    <value>Дана производная функции Кобба-Дугласа: y=A*x1^α*x2^β. Найти:
-1. Степень однородности функции
-2. Функцию издержек
-3. Предельные производительности ресурсов для заданных значений x1_0  и x2_0.
-4. Коэффициенты эластичности выпуска по ресурсам и эластичности от расширения масшатба производства.
-5. Предельную норму замещения ресурсов для заданных значений x1_0 и x2_0.
-6. Оптимальный выбор производителя по критерию максимальной прибыли в условиях совершенной конкуренции.
-7. Реакции производителя при изменении цен на продукцию и на ресурсы и соответствующие коэффициенты эластичности при заданных ценах
-</value>
-  </data>
+  <metadata name="printDocument1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>882, 17</value>
+  </metadata>
+  <metadata name="printDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1050, 17</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>55</value>
+    <value>255</value>
   </metadata>
 </root>

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Drawing.Printing;
 
 namespace Кобба_Дуглас
 {
@@ -705,14 +706,37 @@ namespace Кобба_Дуглас
 
         private void solveBtn_Click(object sender, EventArgs e)
         {
-            U_label.Text = String.Format(U_label.Text, pTb.Text, q1Tb.Text, q2Tb.Text, "x10", "x20", "x1", "^1", "^2");
+            U_label.Text = String.Format(U_label.Text, pTb.Text, q1Tb.Text, q2Tb.Text, x1Tb.Text, x2Tb.Text, A_Tb.Text, alphaTb.Text, betaTb.Text);
             Solve();
         }
         #endregion
+        string stringToPrint, documentString;
+        Brush this_color;
+        void InitPrint()
+        {
+            stringToPrint = ansRTB.Text;
+            documentString = stringToPrint;
+            this_color = new SolidBrush(ansRTB.ForeColor);
+            printDocument1.DefaultPageSettings.Margins = new Margins(50, 50, 50, 50);
+        }
 
+        private void OnPrintPage(object sender, PrintPageEventArgs e)
+        {
+            int charactersOnPage = 0;
+            int linesPerPage = 0;
+            e.Graphics.MeasureString(stringToPrint, ansRTB.Font,
+                e.MarginBounds.Size, StringFormat.GenericDefault,
+                out charactersOnPage, out linesPerPage);
+            e.Graphics.DrawString(stringToPrint, ansRTB.Font, this_color,
+                e.MarginBounds, StringFormat.GenericDefault);
+            stringToPrint = stringToPrint.Substring(charactersOnPage);
+            e.HasMorePages = (stringToPrint.Length > 0);
+            if (!e.HasMorePages)
+                stringToPrint = documentString;
+        }
         private void printPreviewTSMI_Click(object sender, EventArgs e)
         {
-            //InitPrint();
+            InitPrint();
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();
 
@@ -722,7 +746,7 @@ namespace Кобба_Дуглас
         {
             if (printDialog1.ShowDialog() == DialogResult.OK)
             {
-                //InitPrint();
+                InitPrint();
                 printDocument1.Print();
 
             }
