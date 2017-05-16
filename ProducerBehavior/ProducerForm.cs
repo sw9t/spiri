@@ -703,6 +703,8 @@ namespace ProducerLite
         }
         private void cancelBtn_Click(object sender, EventArgs e)
         {
+            alphaTb.Text = betaTb.Text = A_Tb.Text = pTb.Text = q1Tb.Text = q2Tb.Text = x1Tb.Text = x2Tb.Text = U_Tb.Text = "";
+            ansRTB.Text = "";
             //textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = textBox5.Text = textBox6.Text = textBox8.Text = ansRTB.Text = "";
         }
         private void CloseTSMI_Click(object sender, EventArgs e)

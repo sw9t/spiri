@@ -28,16 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("Степень эластичности функции", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("Функция издержек C(y)", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Предельные производительности ресурсов", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("Нормы замещения ресурсов", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("Оптимальный выбор производителя по критерию максимальной прибыли", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup13 = new System.Windows.Forms.ListViewGroup("Реакции производителя при изменении цен", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup14 = new System.Windows.Forms.ListViewGroup("Коэффициенты эластичности по ценам", System.Windows.Forms.HorizontalAlignment.Left);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProducerForm));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.ansRTB = new System.Windows.Forms.RichTextBox();
+            this.answersList = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveSolutionTSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.printPreviewTSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.printTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.closeAppTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpTSMI = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,9 +70,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.Ans1Label = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roundNUD)).BeginInit();
@@ -90,26 +93,64 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox3.Controls.Add(this.ansRTB);
-            this.groupBox3.Location = new System.Drawing.Point(280, 27);
+            this.groupBox3.Controls.Add(this.Ans1Label);
+            this.groupBox3.Controls.Add(this.answersList);
+            this.groupBox3.Location = new System.Drawing.Point(280, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(589, 522);
+            this.groupBox3.Size = new System.Drawing.Size(589, 545);
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Решение задачи";
             // 
-            // ansRTB
+            // answersList
             // 
-            this.ansRTB.BackColor = System.Drawing.Color.White;
-            this.ansRTB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ansRTB.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ansRTB.Location = new System.Drawing.Point(3, 16);
-            this.ansRTB.Name = "ansRTB";
-            this.ansRTB.ReadOnly = true;
-            this.ansRTB.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.ansRTB.Size = new System.Drawing.Size(583, 503);
-            this.ansRTB.TabIndex = 0;
-            this.ansRTB.Text = "";
+            this.answersList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.answersList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.answersList.FullRowSelect = true;
+            this.answersList.GridLines = true;
+            listViewGroup8.Header = "Степень эластичности функции";
+            listViewGroup8.Name = "gr1";
+            listViewGroup9.Header = "Функция издержек C(y)";
+            listViewGroup9.Name = "gr2";
+            listViewGroup10.Header = "Предельные производительности ресурсов";
+            listViewGroup10.Name = "gr3";
+            listViewGroup11.Header = "Нормы замещения ресурсов";
+            listViewGroup11.Name = "gr5";
+            listViewGroup12.Header = "Оптимальный выбор производителя по критерию максимальной прибыли";
+            listViewGroup12.Name = "gr6";
+            listViewGroup13.Header = "Реакции производителя при изменении цен";
+            listViewGroup13.Name = "gr8";
+            listViewGroup14.Header = "Коэффициенты эластичности по ценам";
+            listViewGroup14.Name = "elast";
+            this.answersList.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup8,
+            listViewGroup9,
+            listViewGroup10,
+            listViewGroup11,
+            listViewGroup12,
+            listViewGroup13,
+            listViewGroup14});
+            this.answersList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.answersList.Location = new System.Drawing.Point(6, 146);
+            this.answersList.Name = "answersList";
+            this.answersList.Size = new System.Drawing.Size(577, 396);
+            this.answersList.TabIndex = 0;
+            this.answersList.UseCompatibleStateImageBehavior = false;
+            this.answersList.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Величина";
+            this.columnHeader1.Width = 282;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Значение";
+            this.columnHeader2.Width = 267;
             // 
             // menuStrip1
             // 
@@ -127,50 +168,16 @@
             // FileMenu
             // 
             this.FileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveSolutionTSMI,
-            this.toolStripSeparator1,
-            this.printPreviewTSMI,
-            this.printTSMI,
             this.closeAppTSMI});
             this.FileMenu.Name = "FileMenu";
             this.FileMenu.Size = new System.Drawing.Size(48, 20);
             this.FileMenu.Text = "Файл";
             // 
-            // saveSolutionTSMI
-            // 
-            this.saveSolutionTSMI.Name = "saveSolutionTSMI";
-            this.saveSolutionTSMI.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveSolutionTSMI.Size = new System.Drawing.Size(245, 22);
-            this.saveSolutionTSMI.Text = "Сохранить решение";
-            this.saveSolutionTSMI.Click += new System.EventHandler(this.SaveSolutionTSMI_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(242, 6);
-            // 
-            // printPreviewTSMI
-            // 
-            this.printPreviewTSMI.Name = "printPreviewTSMI";
-            this.printPreviewTSMI.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.P)));
-            this.printPreviewTSMI.Size = new System.Drawing.Size(245, 22);
-            this.printPreviewTSMI.Text = "Просмотр печати";
-            this.printPreviewTSMI.Click += new System.EventHandler(this.printPreviewTSMI_Click);
-            // 
-            // printTSMI
-            // 
-            this.printTSMI.Name = "printTSMI";
-            this.printTSMI.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.printTSMI.Size = new System.Drawing.Size(245, 22);
-            this.printTSMI.Text = "Печать";
-            this.printTSMI.Click += new System.EventHandler(this.printTSMI_Click);
-            // 
             // closeAppTSMI
             // 
             this.closeAppTSMI.Name = "closeAppTSMI";
             this.closeAppTSMI.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.closeAppTSMI.Size = new System.Drawing.Size(245, 22);
+            this.closeAppTSMI.Size = new System.Drawing.Size(162, 22);
             this.closeAppTSMI.Text = "Закрыть";
             this.closeAppTSMI.Click += new System.EventHandler(this.CloseTSMI_Click);
             // 
@@ -471,31 +478,22 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "A";
             // 
-            // printPreviewDialog1
+            // Ans1Label
             // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
-            // 
-            // printDocument1
-            // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.OnPrintPage);
-            // 
-            // printDialog1
-            // 
-            this.printDialog1.Document = this.printDocument1;
-            this.printDialog1.UseEXDialog = true;
+            this.Ans1Label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Ans1Label.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Ans1Label.Location = new System.Drawing.Point(6, 19);
+            this.Ans1Label.Name = "Ans1Label";
+            this.Ans1Label.Size = new System.Drawing.Size(577, 124);
+            this.Ans1Label.TabIndex = 1;
             // 
             // ProducerForm
             // 
             this.AcceptButton = this.solveBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::ProducerBehavior.Properties.Resources.bg;
+            this.BackgroundImage = global::ProducerBehaviorLite.Properties.Resources.bg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.clearBtn;
             this.ClientSize = new System.Drawing.Size(884, 561);
@@ -506,7 +504,7 @@
             this.DoubleBuffered = true;
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "ProducerForm";
-            this.Text = "Оптимальное поведение производителя";
+            this.Text = "Оптимальное поведение производителя (Итоговые вычисления)";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox3.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
@@ -525,13 +523,8 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RichTextBox ansRTB;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem FileMenu;
-        private System.Windows.Forms.ToolStripMenuItem saveSolutionTSMI;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem printPreviewTSMI;
-        private System.Windows.Forms.ToolStripMenuItem printTSMI;
         private System.Windows.Forms.ToolStripMenuItem closeAppTSMI;
         private System.Windows.Forms.ToolStripMenuItem HelpMenu;
         private System.Windows.Forms.ToolStripMenuItem HelpTSMI;
@@ -558,10 +551,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
-        private System.Drawing.Printing.PrintDocument printDocument1;
-        private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.TextBox U_Tb;
+        private System.Windows.Forms.ListView answersList;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.Label Ans1Label;
     }
 }
 

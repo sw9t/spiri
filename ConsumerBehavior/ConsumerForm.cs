@@ -780,7 +780,7 @@ namespace Consumer
         private void button2_Click(object sender, EventArgs e)
         {
             textBox1.Text = textBox2.Text = textBox3.Text = textBox4.Text = textBox5.Text =
-                textBox6.Text = textBox8.Text = ansRTB.Text = "";
+                textBox6.Text = textBox8.Text = ansRTB.Text = U_Tb.Text = "";
         }
         private void закрытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
