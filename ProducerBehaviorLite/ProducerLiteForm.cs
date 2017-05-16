@@ -836,8 +836,6 @@ namespace ProducerLite
             Solve();
         }
         #endregion
-        string stringToPrint, documentString;
-        Brush this_color;
 
         private void Tb_KeyPress(object sender, KeyPressEventArgs e)
         {
