@@ -177,8 +177,8 @@ namespace Consumer
                                             "          |{1}  λp3  0|\r\n",
                 Math.Round(alpha, kolznak), Math.Round(betta, kolznak), Math.Round(gamma, kolznak), Math.Round(betta * gamma, kolznak), Math.Round(betta * alpha, kolznak), Math.Round(betta*betta, kolznak)));
             ansRTB.AppendText(String.Format("          |0  {0}  λp1|\r\n" +
-                                             "   D3=|{0}  0  λp1|={3}λp2+{4}λp1-{5}λp3\r\n" +
-                                             "          |{1}  {2}  λp1|\r\n",
+                                             "   D3=|{0}  0  λp2|={3}λp2+{4}λp1-{5}λp3\r\n" +
+                                             "          |{1}  {2}  λp3|\r\n",
                  Math.Round(alpha, kolznak), Math.Round(betta, kolznak), Math.Round(gamma, kolznak), Math.Round(betta * alpha, kolznak), Math.Round(gamma * alpha, kolznak), Math.Round(alpha * alpha, kolznak)));
 
 
